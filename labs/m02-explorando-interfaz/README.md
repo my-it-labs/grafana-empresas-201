@@ -6,7 +6,7 @@
 
 - Orientarte en la interfaz de Grafana (menús, búsqueda, organización).
 - Relacionar cada zona de la UI con tareas habituales (explorar, conectar datos, administrar).
-- Crear paneles básicos, ajustar visualizaciones y usar variables *(unidades M02-02 a M02-04)*.
+- Crear paneles básicos, ajustar visualizaciones y parametrizar dashboards con variables.
 
 ## Contexto
 
@@ -21,12 +21,12 @@ Cada unidad incluye:
 1. **Entradilla y Objetivos** — contexto y metas de la unidad  
 2. **Conceptos** — ideas y vocabulario del tema  
 3. **En Grafana** — la interfaz en el entorno del lab  
-4. **Laboratorio** — **Objetivo**, **En qué consiste** (con capturas si aplica), pasos **Acción**, **Por qué**, **Resultado esperado**  
+4. **Laboratorio** — **Objetivo**, **En qué consiste**, pasos **Acción**, **Por qué**, **Resultado esperado**  
 5. **Conclusiones**, **Comprueba tu entendimiento** y **Reto** (solución en desplegable)
 
 Empieza por [M02-01 — Navegación y estructura](M02-01-navegacion-estructura.md).
 
-Todas las unidades publicadas de este módulo son **talleres** sobre Grafana en marcha. Índice: [Laboratorios del curso](../LABORATORIOS.md).
+Todas las unidades de este módulo son **talleres** sobre Grafana en marcha. Índice: [Laboratorios del curso](../LABORATORIOS.md).
 
 ## Unidades
 
@@ -35,7 +35,7 @@ Todas las unidades publicadas de este módulo son **talleres** sobre Grafana en 
 | M02-01 | [Navegación y estructura](M02-01-navegacion-estructura.md) | Dominar menú lateral, barra superior y búsqueda global |
 | M02-02 | [Paneles y gráficos](M02-02-paneles-graficos.md) | Crear primer panel con TestData y time series |
 | M02-03 | [Configuración básica de paneles](M02-03-configuracion-paneles.md) | Ajustar leyendas, unidades y tipo de visualización |
-| M02-04 | Variables | Parametrizar un dashboard con variables |
+| M02-04 | [Variables de dashboard](M02-04-variables-dashboard.md) | Custom, interval y repeat por variable |
 
 ## Antes de empezar
 

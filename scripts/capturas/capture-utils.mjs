@@ -5,8 +5,24 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const REPO_ROOT = path.resolve(__dirname, "../..");
 export const CAPTURAS_M02 = path.join(REPO_ROOT, "docs/capturas/m02-explorando-interfaz");
+export const CAPTURAS_M03 = path.join(REPO_ROOT, "docs/capturas/m03-fuentes-datos");
+export const CAPTURAS_M04 = path.join(REPO_ROOT, "docs/capturas/m04-paneles-personalizacion");
+export const CAPTURAS_M05 = path.join(REPO_ROOT, "docs/capturas/m05-visualizaciones-avanzadas");
 export const BASE = process.env.GRAFANA_URL ?? "http://localhost:3000";
 export const TESTDATA = { type: "grafana-testdata-datasource", uid: "grafana" };
+
+export async function waitGrafana() {
+  for (let i = 0; i < 40; i++) {
+    try {
+      const res = await fetch(`${BASE}/api/health`);
+      if (res.ok) return;
+    } catch {
+      /* retry */
+    }
+    await new Promise((r) => setTimeout(r, 1500));
+  }
+  throw new Error(`Grafana no responde en ${BASE}`);
+}
 
 export async function login(page) {
   await page.goto(`${BASE}/login`, { waitUntil: "domcontentloaded" });
@@ -29,7 +45,11 @@ export async function dismissOverlays(page) {
 }
 
 export async function shot(page, name, opts = {}) {
-  const file = path.join(CAPTURAS_M02, name);
+  return shotIn(page, CAPTURAS_M02, name, opts);
+}
+
+export async function shotIn(page, dir, name, opts = {}) {
+  const file = path.join(dir, name);
   await page.screenshot({ path: file, ...opts });
   console.log("  📷", path.relative(REPO_ROOT, file));
 }
@@ -181,23 +201,164 @@ export async function editFirstPanel(page) {
   await page.waitForTimeout(2500);
 }
 
-export async function seedDashboardViaApi(request, { title, uid, panels }) {
+export async function seedDashboardViaApi(request, { title, uid, panels, templating = null }) {
+  const dashboard = {
+    title,
+    uid,
+    timezone: "browser",
+    schemaVersion: 39,
+    version: 1,
+    panels,
+  };
+  if (templating) dashboard.templating = templating;
   const res = await request.post(`${BASE}/api/dashboards/db`, {
     headers: { "Content-Type": "application/json" },
-    data: {
-      dashboard: {
-        title,
-        uid,
-        timezone: "browser",
-        schemaVersion: 39,
-        version: 1,
-        panels,
-      },
-      overwrite: true,
-    },
+    data: { dashboard, overwrite: true },
   });
   if (!res.ok()) throw new Error(`API dashboard ${title}: ${res.status()} ${await res.text()}`);
   return (await res.json()).url;
+}
+
+export async function upsertDatasource(request, spec) {
+  const auth = {
+    username: process.env.GRAFANA_USER ?? "admin",
+    password: process.env.GRAFANA_PASS ?? "admin",
+  };
+  const listRes = await request.get(`${BASE}/api/datasources`, { ...auth });
+  const list = await listRes.json();
+  const existing = list.find((d) => d.name === spec.name);
+  const body = { access: "proxy", orgId: 1, ...spec };
+  if (existing) {
+    const res = await request.put(`${BASE}/api/datasources/${existing.id}`, {
+      ...auth,
+      headers: { "Content-Type": "application/json" },
+      data: { ...body, id: existing.id },
+    });
+    if (!res.ok()) throw new Error(`PUT datasource ${spec.name}: ${await res.text()}`);
+    return existing.uid;
+  }
+  const res = await request.post(`${BASE}/api/datasources`, {
+    ...auth,
+    headers: { "Content-Type": "application/json" },
+    data: body,
+  });
+  if (!res.ok()) throw new Error(`POST datasource ${spec.name}: ${await res.text()}`);
+  return (await res.json()).datasource.uid;
+}
+
+export async function getDatasourceByName(request, name) {
+  const res = await request.get(`${BASE}/api/datasources/name/${encodeURIComponent(name)}`, {
+    username: process.env.GRAFANA_USER ?? "admin",
+    password: process.env.GRAFANA_PASS ?? "admin",
+  });
+  if (!res.ok()) return null;
+  return await res.json();
+}
+
+export async function ensureLabDatasources(request) {
+  await upsertDatasource(request, {
+    name: "Prometheus-Lab",
+    type: "prometheus",
+    url: "http://prometheus:9090",
+    isDefault: true,
+    jsonData: { httpMethod: "POST" },
+  });
+  await upsertDatasource(request, {
+    name: "PostgreSQL-Lab",
+    type: "grafana-postgresql-datasource",
+    url: "postgres:5432",
+    database: "lab",
+    user: "grafana",
+    secureJsonData: { password: "grafana" },
+    jsonData: { sslmode: "disable", postgresVersion: 1600 },
+  });
+  await upsertDatasource(request, {
+    name: "Loki-Lab",
+    type: "loki",
+    url: "http://loki:3100",
+  });
+  return {
+    prometheus: await getDatasourceByName(request, "Prometheus-Lab"),
+    postgres: await getDatasourceByName(request, "PostgreSQL-Lab"),
+    loki: await getDatasourceByName(request, "Loki-Lab"),
+  };
+}
+
+export function customVariable(name, query, label = name) {
+  const values = query.split(",").map((v) => v.trim());
+  return {
+    current: { selected: true, text: values[0], value: values[0] },
+    hide: 0,
+    includeAll: false,
+    label,
+    multi: false,
+    name,
+    options: values.map((v, i) => ({
+      selected: i === 0,
+      text: v,
+      value: v,
+    })),
+    query,
+    skipUrlSync: false,
+    type: "custom",
+  };
+}
+
+export function intervalVariable(name = "interval", label = "Resolución") {
+  return {
+    auto: true,
+    auto_count: 30,
+    auto_min: "10s",
+    current: { selected: false, text: "1m", value: "1m" },
+    hide: 0,
+    label,
+    name,
+    options: [
+      { selected: true, text: "1m", value: "1m" },
+      { selected: false, text: "5m", value: "5m" },
+      { selected: false, text: "15m", value: "15m" },
+    ],
+    query: "1m,5m,15m,30m,1h",
+    refresh: 2,
+    skipUrlSync: false,
+    type: "interval",
+  };
+}
+
+export function promPanel(id, { title, expr, uid, gridPos, unit = "short", thresholds = null }) {
+  const defaults = { unit, custom: { drawStyle: "line", lineWidth: 1, fillOpacity: 10 } };
+  if (thresholds) {
+    defaults.thresholds = thresholds;
+  }
+  return {
+    id,
+    type: "timeseries",
+    title,
+    gridPos: gridPos ?? { h: 8, w: 12, x: 0, y: (id - 1) * 8 },
+    datasource: { type: "prometheus", uid },
+    targets: [{ refId: "A", expr, datasource: { type: "prometheus", uid } }],
+    fieldConfig: { defaults, overrides: [] },
+    options: {
+      legend: { calcs: [], displayMode: "list", placement: "bottom", showLegend: true },
+      tooltip: { mode: "single" },
+    },
+  };
+}
+
+export async function openDashboardSettingsVariables(page) {
+  await page.goto(`${BASE}/dashboard/new`, { waitUntil: "networkidle" }).catch(() => {});
+  await page.waitForTimeout(500);
+  const settings = page.getByRole("button", { name: /dashboard settings|ajustes/i }).first();
+  if (await settings.isVisible({ timeout: 3000 }).catch(() => false)) {
+    await settings.click({ force: true });
+  } else {
+    await page.locator('[aria-label*="Dashboard settings"], [data-testid*="dashboard-settings"]').first().click({ force: true }).catch(() =>
+      page.getByRole("button", { name: /^settings$/i }).click({ force: true })
+    );
+  }
+  await page.waitForTimeout(1200);
+  await page.getByRole("tab", { name: /^variables$|variables/i }).click({ force: true });
+  await page.waitForTimeout(800);
 }
 
 export function basicTimeseriesPanel(id = 1, { title = "CPU demo (TestData)", unit = "short", legendCalcs = [] } = {}) {

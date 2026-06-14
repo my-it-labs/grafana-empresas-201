@@ -6,7 +6,12 @@
     "capturas": "node capture-lab.mjs",
     "capturas:headed": "HEADED=1 node capture-lab.mjs",
     "capturas:m02-02": "node capture-m02-02.mjs",
-    "capturas:m02-03": "node capture-m02-03.mjs"
+    "capturas:m02-03": "node capture-m02-03.mjs",
+    "capturas:m02-04": "node capture-m02-04.mjs",
+    "capturas:m03": "node capture-m03.mjs",
+    "capturas:m04": "node capture-m04.mjs",
+    "capturas:m05": "node capture-m05.mjs",
+    "capturas:all": "node capture-m02-04.mjs && node capture-m03.mjs && node capture-m04.mjs && node capture-m05.mjs"
   },
   "devDependencies": {
     "playwright": "^1.52.0"

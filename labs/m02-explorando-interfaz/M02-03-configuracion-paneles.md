@@ -1,6 +1,6 @@
 # M02-03 — Configuración básica de paneles
 
-[← Página anterior](M02-02-paneles-graficos.md) · [Siguiente página →](../m03-fuentes-datos/README.md)
+[← Página anterior](M02-02-paneles-graficos.md) · [Siguiente página →](M02-04-variables-dashboard.md)
 
 Un panel funcional no basta en entorno real: operaciones y negocio esperan **unidades legibles**, **leyendas claras** y, a veces, **otro tipo de gráfico** sin reescribir la consulta. Grafana separa *qué datos pides* (consulta) de *cómo los presentas* (opciones de panel, campo y visualización).
 
@@ -27,6 +27,8 @@ Las opciones de un panel se agrupan en tres zonas habituales del editor:
 La **leyenda** identifica series cuando hay más de una (o cuando el alias de consulta no es obvio). Puede mostrarse abajo, a la derecha o oculta; admite valores agregados (**Last**, **Min**, **Max**, **Mean**) junto al nombre de la serie.
 
 El **selector de visualización** (parte superior del preview) permite cambiar de **Time series** a **Bar chart**, **Gauge**, **Stat**, etc. La consulta suele mantenerse; cambia el mapeo visual de los mismos puntos.
+
+**Bar chart** representa cada intervalo temporal como **barra** en lugar de línea — enfatiza comparación por bucket frente a continuidad. En el laboratorio añadirás un segundo panel con el mismo escenario TestData en bar chart.
 
 **Field overrides** (anidados bajo *Overrides* en el editor) permiten reglas por serie o por tipo de campo; en esta unidad basta con opciones estándar globales del panel.
 
@@ -181,6 +183,8 @@ curl -s -u admin:admin "http://localhost:3000/api/search?query=Lab%20M02-03" | h
 ## Reto
 
 ### 1 — Gauge con umbrales
+
+**Gauge** muestra **un valor agregado** (último, media…) en un arco o medidor, útil cuando solo importa el estado actual (ocupación %, SLA).
 
 Añade un tercer panel TestData (**Random walk**) con visualización **Gauge**. En **Standard options**, fija **Min** `0` y **Max** `100`. En opciones de **Gauge**, define umbrales de color (verde &lt; 70, amarillo 70–90, rojo &gt; 90).
 

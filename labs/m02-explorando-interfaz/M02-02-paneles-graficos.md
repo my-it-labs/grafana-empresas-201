@@ -26,6 +26,8 @@ Un **dashboard** agrupa uno o más **paneles**. Cada panel tiene tres capas:
 
 **TestData** es un datasource **built-in** de Grafana: genera series aleatorias o CSV de demo sin backend externo. Sirve para practicar diseño de paneles cuando aún no hay métricas reales conectadas.
 
+El escenario **Random walk** produce una serie numérica que **da pasos aleatorios** en cada punto temporal: no representa CPU ni ventas reales, solo una curva continua para probar ejes, leyenda y refresco. En M02-03 y M02-04 seguirás con TestData; desde M03 las fuentes serán Prometheus, PostgreSQL y Loki.
+
 **Time series** es la visualización por defecto para métricas con eje temporal: una o más líneas (o áreas) en función del tiempo. Es el tipo más usado en observabilidad de infraestructura.
 
 El **editor de panel** divide la pantalla: consulta abajo (o a un lado), previsualización arriba, y opciones de panel/visualización a la derecha. **Apply** confirma cambios en el dashboard; **Save dashboard** persiste el tablero en la base de Grafana del lab.

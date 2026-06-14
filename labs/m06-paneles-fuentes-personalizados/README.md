@@ -1,6 +1,6 @@
 # M06 — Paneles y fuentes de datos personalizados
 
-[← Página anterior](../m05-visualizaciones-avanzadas/README.md) · [Siguiente página →](../m07-tableros-organizacion/README.md)
+[← Página anterior](../m05-visualizaciones-avanzadas/M05-04-alertas-umbrales.md) · [Siguiente página →](../m07-tableros-organizacion/README.md)
 
 ## Qué aprenderás
 
