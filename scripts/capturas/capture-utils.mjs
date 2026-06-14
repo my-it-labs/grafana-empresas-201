@@ -8,6 +8,10 @@ export const CAPTURAS_M02 = path.join(REPO_ROOT, "docs/capturas/m02-explorando-i
 export const CAPTURAS_M03 = path.join(REPO_ROOT, "docs/capturas/m03-fuentes-datos");
 export const CAPTURAS_M04 = path.join(REPO_ROOT, "docs/capturas/m04-paneles-personalizacion");
 export const CAPTURAS_M05 = path.join(REPO_ROOT, "docs/capturas/m05-visualizaciones-avanzadas");
+export const CAPTURAS_M06 = path.join(REPO_ROOT, "docs/capturas/m06-paneles-fuentes-personalizados");
+export const CAPTURAS_M07 = path.join(REPO_ROOT, "docs/capturas/m07-tableros-organizacion");
+export const CAPTURAS_M08 = path.join(REPO_ROOT, "docs/capturas/m08-administracion");
+export const CAPTURAS_M09 = path.join(REPO_ROOT, "docs/capturas/m09-integraciones");
 export const BASE = process.env.GRAFANA_URL ?? "http://localhost:3000";
 export const TESTDATA = { type: "grafana-testdata-datasource", uid: "grafana" };
 
@@ -407,4 +411,61 @@ export async function waitForDashboardPanel(page) {
     .first()
     .waitFor({ timeout: 15000 });
   await page.waitForTimeout(1500);
+}
+
+export async function ensureFolder(request, { title, uid }) {
+  const auth = {
+    username: process.env.GRAFANA_USER ?? "admin",
+    password: process.env.GRAFANA_PASS ?? "admin",
+  };
+  const res = await request.post(`${BASE}/api/folders`, {
+    ...auth,
+    headers: { "Content-Type": "application/json" },
+    data: { title, uid },
+  });
+  if (res.ok()) return (await res.json()).uid;
+  const get = await request.get(`${BASE}/api/folders/${uid}`, auth);
+  if (get.ok()) return uid;
+  throw new Error(`Folder ${title}: ${res.status()} ${await res.text()}`);
+}
+
+export async function createLibraryPanel(request, { name, panelModel, folderUid = "" }) {
+  const auth = {
+    username: process.env.GRAFANA_USER ?? "admin",
+    password: process.env.GRAFANA_PASS ?? "admin",
+  };
+  const res = await request.post(`${BASE}/api/library-elements`, {
+    ...auth,
+    headers: { "Content-Type": "application/json" },
+    data: { name, kind: 1, folderUid, model: panelModel },
+  });
+  if (!res.ok()) throw new Error(`Library panel ${name}: ${await res.text()}`);
+  const body = await res.json();
+  return body.result ?? body;
+}
+
+export async function upsertOrgUser(request, { login, name, email, password, role = "Viewer" }) {
+  const auth = {
+    username: process.env.GRAFANA_USER ?? "admin",
+    password: process.env.GRAFANA_PASS ?? "admin",
+  };
+  const lookup = await request.get(`${BASE}/api/users/lookup?loginOrEmail=${encodeURIComponent(login)}`, auth);
+  let userId;
+  if (lookup.ok()) {
+    userId = (await lookup.json()).id;
+  } else {
+    const create = await request.post(`${BASE}/api/admin/users`, {
+      ...auth,
+      headers: { "Content-Type": "application/json" },
+      data: { name, email, login, password },
+    });
+    if (!create.ok()) throw new Error(`Create user ${login}: ${await create.text()}`);
+    userId = (await create.json()).id;
+  }
+  await request.patch(`${BASE}/api/org/users/${userId}`, {
+    ...auth,
+    headers: { "Content-Type": "application/json" },
+    data: { role },
+  });
+  return userId;
 }

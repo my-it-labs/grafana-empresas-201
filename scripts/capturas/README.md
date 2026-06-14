@@ -18,6 +18,10 @@ npm run capturas:m02-04
 npm run capturas:m03
 npm run capturas:m04
 npm run capturas:m05
+npm run capturas:m06
+npm run capturas:m07
+npm run capturas:m08
+npm run capturas:m09
 # o todas las nuevas de una vez:
 npm run capturas:all
 ```
@@ -30,6 +34,10 @@ Salida por módulo:
 | `capturas:m03` | `docs/capturas/m03-fuentes-datos/` |
 | `capturas:m04` | `docs/capturas/m04-paneles-personalizacion/` |
 | `capturas:m05` | `docs/capturas/m05-visualizaciones-avanzadas/` |
+| `capturas:m06` | `docs/capturas/m06-paneles-fuentes-personalizados/` |
+| `capturas:m07` | `docs/capturas/m07-tableros-organizacion/` |
+| `capturas:m08` | `docs/capturas/m08-administracion/` |
+| `capturas:m09` | `docs/capturas/m09-integraciones/` |
 
 Modo visible (depurar selectores):
 
@@ -116,6 +124,46 @@ Cada captura corresponde a **un momento concreto** del flujo UI, no a la misma p
 | `M05-04-panel-thresholds.png` | Panel con umbrales visuales |
 | `M05-04-alert-rules-lista.png` | **Alerting → Alert rules** |
 | `M05-04-nueva-regla.png` | Asistente **New alert rule** |
+
+### M06
+
+| Archivo | Momento |
+|---------|---------|
+| `M06-01-panel-library-lista.png` | **Panel library** — listado |
+| `M06-01-dashboard-vinculado.png` | `Lab M06-01` — paneles vinculados |
+| `M06-02-dashboard-mixed.png` | Panel **Mixed** Prometheus + SQL |
+| `M06-02-editor-mixed.png` | Editor panel Mixed — consultas A/B |
+
+### M07
+
+| Archivo | Momento |
+|---------|---------|
+| `M07-01-dashboard-filas.png` | `Lab M07-01` — filas Ops/Business |
+| `M07-01-settings-links.png` | **Settings → Links** |
+| `M07-02-anotaciones-settings.png` | **Settings → Annotations** |
+| `M07-02-dashboard-anotaciones.png` | Dashboard con anotación deploy |
+| `M07-03-folders-browse.png` | **Browse** — carpetas |
+| `M07-03-playlists.png` | **Playlists** |
+
+### M08
+
+| Archivo | Momento |
+|---------|---------|
+| `M08-01-users-lista.png` | **Administration → Users** |
+| `M08-01-user-form.png` | Formulario **Add user** |
+| `M08-02-folder-permissions.png` | Permisos folder **Lab Business** |
+| `M08-03-contact-points.png` | **Contact points** |
+| `M08-03-notification-policies.png` | **Notification policies** |
+| `M08-03-silences.png` | **Silences** |
+
+### M09
+
+| Archivo | Momento |
+|---------|---------|
+| `M09-01-dashboard-provisioned.png` | Dashboard estilo **Lab Provisioned — CPU** |
+| `M09-01-export-dialog.png` | **Share → Export** JSON |
+| `M09-01-datasources-lista.png` | **Connections → Data sources** |
+| `M09-02-dashboard-api.png` | `Lab M09-02` importado vía API |
 
 ## Notas técnicas
 

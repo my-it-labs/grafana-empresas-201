@@ -119,6 +119,10 @@ En los módulos M03 en adelante configurarás fuentes en la UI. Desde el contene
 - `sensor_readings` — escenario IoT / industrial  
 - `http_events` — escenario IT / tráfico HTTP  
 
+### Provisioning (M09)
+
+Ejemplos declarativos en [`grafana/provisioning/examples/`](grafana/provisioning/examples/README.md). Descomenta el volumen en `docker-compose.yml` para activarlos en local.
+
 ---
 
 ## Diagnóstico

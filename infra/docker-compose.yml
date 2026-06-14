@@ -21,6 +21,8 @@ services:
       GF_INSTALL_PLUGINS: ""
     volumes:
       - grafana-data:/var/lib/grafana
+      # M09-01: descomenta para provisioning de examples (no activo por defecto; puede coexistir con M03 manual)
+      # - ./grafana/provisioning/examples:/etc/grafana/provisioning:ro
     restart: unless-stopped
 
   prometheus:

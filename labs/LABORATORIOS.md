@@ -29,6 +29,16 @@ Detalle del entorno: [infra/README.md](../infra/README.md).
 | M05-02 | [Tablas y listas](m05-visualizaciones-avanzadas/M05-02-tablas-listas.md) | Tablas SQL y estilos de celda, `Lab M05-02` |
 | M05-03 | [Mapas y geolocalización](m05-visualizaciones-avanzadas/M05-03-mapas-geolocalizacion.md) | Geomap revenue por región, `Lab M05-03` |
 | M05-04 | [Alertas y umbrales](m05-visualizaciones-avanzadas/M05-04-alertas-umbrales.md) | Thresholds + alert rules, `Lab M05-04` |
+| M06-01 | [Paneles de biblioteca](m06-paneles-fuentes-personalizados/M06-01-paneles-biblioteca.md) | Library panels y propagación, `Lab M06-01` |
+| M06-02 | [Fuentes mixtas y transformaciones](m06-paneles-fuentes-personalizados/M06-02-fuentes-mixtas-transformaciones.md) | Panel Mixed Prometheus+SQL, `Lab M06-02` |
+| M07-01 | [Diseño y enlaces](m07-tableros-organizacion/M07-01-diseno-dashboards.md) | Filas, links, tags, `Lab M07-01` |
+| M07-02 | [Anotaciones y eventos](m07-tableros-organizacion/M07-02-anotaciones-eventos.md) | Anotaciones manual + SQL, `Lab M07-02` |
+| M07-03 | [Carpetas y playlists](m07-tableros-organizacion/M07-03-carpetas-playlists.md) | Folders, playlist NOC, kiosk |
+| M08-01 | [Usuarios y roles](m08-administracion/M08-01-usuarios-roles.md) | Viewer/Editor, `Lab M08-01` |
+| M08-02 | [Permisos en carpetas](m08-administracion/M08-02-permisos-carpetas.md) | Teams, ACL folders, `Lab M08-02` |
+| M08-03 | [Contact points y políticas](m08-administracion/M08-03-contact-points-politicas.md) | Webhook, silences, `Lab M08-03` |
+| M09-01 | [Versionado y provisioning](m09-integraciones/M09-01-versionado-provisioning.md) | Export JSON, provisioning examples |
+| M09-02 | [API e integraciones](m09-integraciones/M09-02-api-integraciones.md) | API import, anotaciones, webhooks |
 
 ### Orden recomendado
 
@@ -37,6 +47,10 @@ Detalle del entorno: [infra/README.md](../infra/README.md).
 3. [M03-01](m03-fuentes-datos/M03-01-tipos-fuentes-datos.md) (lectura) → [M03-02](m03-fuentes-datos/M03-02-configuracion-fuentes.md) → [M03-03](m03-fuentes-datos/M03-03-conexion-externa.md) — datasources  
 4. [M04-01](m04-paneles-personalizacion/M04-01-configuracion-avanzada-paneles.md) → [M04-04](m04-paneles-personalizacion/M04-04-filtros-agrupamientos.md) — consultas y variables  
 5. [M05-01](m05-visualizaciones-avanzadas/M05-01-series-temporales.md) → [M05-04](m05-visualizaciones-avanzadas/M05-04-alertas-umbrales.md) — visualizaciones y alertas  
+6. [M06-01](m06-paneles-fuentes-personalizados/M06-01-paneles-biblioteca.md) → [M06-02](m06-paneles-fuentes-personalizados/M06-02-fuentes-mixtas-transformaciones.md) — biblioteca y paneles Mixed  
+7. [M07-01](m07-tableros-organizacion/M07-01-diseno-dashboards.md) → [M07-03](m07-tableros-organizacion/M07-03-carpetas-playlists.md) — organización de tableros  
+8. [M08-01](m08-administracion/M08-01-usuarios-roles.md) → [M08-03](m08-administracion/M08-03-contact-points-politicas.md) — administración  
+9. [M09-01](m09-integraciones/M09-01-versionado-provisioning.md) → [M09-02](m09-integraciones/M09-02-api-integraciones.md) — Git, provisioning y API  
 
 ---
 
@@ -50,11 +64,11 @@ Detalle del entorno: [infra/README.md](../infra/README.md).
 
 ---
 
-## Pendientes de publicación
+## Scripts de apoyo
 
-| Módulo | Índice |
-|--------|--------|
-| M06 — Paneles y datasources personalizados | [labs/m06-paneles-fuentes-personalizados/README.md](m06-paneles-fuentes-personalizados/README.md) |
-| M07 — Tableros y organización | [labs/m07-tableros-organizacion/README.md](m07-tableros-organizacion/README.md) |
-| M08 — Administración | [labs/m08-administracion/README.md](m08-administracion/README.md) |
-| M09 — Integraciones | [labs/m09-integraciones/README.md](m09-integraciones/README.md) |
+| Script | Uso |
+|--------|-----|
+| [`scripts/lab-api-demo.sh`](../scripts/lab-api-demo.sh) | Demo API (M09-02) |
+| [`scripts/capturas/`](../scripts/capturas/README.md) | Capturas PNG M02–M09 |
+
+Provisioning de ejemplo (M09-01): [`infra/grafana/provisioning/examples/`](../infra/grafana/provisioning/examples/README.md).

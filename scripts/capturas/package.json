@@ -11,7 +11,11 @@
     "capturas:m03": "node capture-m03.mjs",
     "capturas:m04": "node capture-m04.mjs",
     "capturas:m05": "node capture-m05.mjs",
-    "capturas:all": "node capture-m02-04.mjs && node capture-m03.mjs && node capture-m04.mjs && node capture-m05.mjs"
+    "capturas:m06": "node capture-m06.mjs",
+    "capturas:m07": "node capture-m07.mjs",
+    "capturas:m08": "node capture-m08.mjs",
+    "capturas:m09": "node capture-m09.mjs",
+    "capturas:all": "node capture-m02-04.mjs && node capture-m03.mjs && node capture-m04.mjs && node capture-m05.mjs && node capture-m06.mjs && node capture-m07.mjs && node capture-m08.mjs && node capture-m09.mjs"
   },
   "devDependencies": {
     "playwright": "^1.52.0"

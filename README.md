@@ -27,6 +27,8 @@ El repo es **autosuficiente**: incluye Grafana y las fuentes de datos del curso 
 
 Credenciales del lab: usuario `admin`, contraseña `admin` (solo formación).
 
+El curso cubre **M01–M09** (introducción, interfaz, datasources, paneles, visualizaciones, biblioteca, organización, administración e integraciones). Índice completo en [Laboratorios](labs/LABORATORIOS.md).
+
 ---
 
 ## Cómo funciona el curso

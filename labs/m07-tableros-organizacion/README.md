@@ -1,13 +1,29 @@
 # M07 — Tableros y organización de paneles
 
-[← Página anterior](../m06-paneles-fuentes-personalizados/README.md) · [Siguiente página →](../m08-administracion/README.md)
+[← Página anterior](../m06-paneles-fuentes-personalizados/M06-02-fuentes-mixtas-transformaciones.md) · [Siguiente página →](M07-01-diseno-dashboards.md)
 
 ## Qué aprenderás
 
-- Creación y gestión de dashboards.
-- Organización en filas y grupos.
-- Anotaciones y eventos.
+- Diseñar dashboards con **filas**, **links** y **tags**.
+- Marcar eventos con **anotaciones** manuales y por consulta.
+- Organizar con **folders**, **playlists** y modos **TV/Kiosk**.
 
-## Ejercicios
+## Contexto
 
-M07-01 a M07-03.
+- Asume dashboards `Lab M04-xx` / `Lab M05-xx` y variables de [M02-04](../m02-explorando-interfaz/M02-04-variables-dashboard.md) / [M04-04](../m04-paneles-personalizacion/M04-04-filtros-agrupamientos.md).
+- Permisos sobre carpetas y usuarios en [M08](../m08-administracion/README.md).
+
+## Unidades
+
+| ID | Unidad | Objetivo |
+|----|--------|----------|
+| M07-01 | [Diseño y enlaces](M07-01-diseno-dashboards.md) | Filas, dashboard/panel links |
+| M07-02 | [Anotaciones y eventos](M07-02-anotaciones-eventos.md) | Manual + query annotations |
+| M07-03 | [Carpetas y playlists](M07-03-carpetas-playlists.md) | Folders, playlist, kiosk |
+
+Todas las unidades incluyen **Laboratorio**. Índice: [Laboratorios](../LABORATORIOS.md).
+
+## Antes de empezar
+
+- Varios dashboards del lab guardados (M04–M06).
+- Rol **Admin** en Grafana (usuario `admin` del entorno).

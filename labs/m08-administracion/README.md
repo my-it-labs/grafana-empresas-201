@@ -1,13 +1,31 @@
 # M08 — Administración de Grafana
 
-[← Página anterior](../m07-tableros-organizacion/README.md) · [Siguiente página →](../m09-integraciones/README.md)
+[← Página anterior](../m07-tableros-organizacion/M07-03-carpetas-playlists.md) · [Siguiente página →](M08-01-usuarios-roles.md)
 
 ## Qué aprenderás
 
-- Seguridad y autenticación.
-- Usuarios, roles y permisos.
-- Programación de tareas y alertas.
+- Gestionar **usuarios** y roles Viewer / Editor / Admin.
+- Aplicar **permisos** en folders y teams.
+- Configurar **contact points**, políticas de notificación y **silences**.
 
-## Ejercicios
+## Contexto
 
-M08-01 a M08-03.
+- Alert rules creadas en [M05-04](../m05-visualizaciones-avanzadas/M05-04-alertas-umbrales.md).
+- Folders definidos en [M07-03](../m07-tableros-organizacion/M07-03-carpetas-playlists.md).
+- Automatización y Git en [M09](../m09-integraciones/README.md).
+
+## Unidades
+
+| ID | Unidad | Objetivo |
+|----|--------|----------|
+| M08-01 | [Usuarios y roles](M08-01-usuarios-roles.md) | Alta viewer/editor, RBAC org |
+| M08-02 | [Permisos en carpetas](M08-02-permisos-carpetas.md) | Teams, ACL folders |
+| M08-03 | [Contact points y políticas](M08-03-contact-points-politicas.md) | Routing, silences |
+
+Todas las unidades incluyen **Laboratorio**. Índice: [Laboratorios](../LABORATORIOS.md).
+
+## Antes de empezar
+
+- Rol **Admin** (`admin` / `admin`).
+- Carpetas **Lab Ops** / **Lab Business** ([M07-03](../m07-tableros-organizacion/M07-03-carpetas-playlists.md)).
+- Al menos una alert rule activa ([M05-04](../m05-visualizaciones-avanzadas/M05-04-alertas-umbrales.md)).
