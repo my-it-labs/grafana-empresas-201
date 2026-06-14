@@ -1,6 +1,6 @@
 # M08 — Administración de Grafana
 
-[← Página anterior](../M07/README.md) · [Siguiente página →](../M09/README.md)
+[← Página anterior](../m07-tableros-organizacion/README.md) · [Siguiente página →](../m09-integraciones/README.md)
 
 ## Qué aprenderás
 

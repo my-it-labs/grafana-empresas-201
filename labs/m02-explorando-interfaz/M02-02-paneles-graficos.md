@@ -40,33 +40,33 @@ Con sesión iniciada en el lab, el flujo habitual para un primer panel empieza e
 
 Desde **Dashboards → New → Dashboard** (o el botón **+** → *Dashboard*), Grafana abre un canvas sin paneles. El breadcrumb incluye *Dashboards* y el nombre provisional del tablero; la acción **Add** (o *Add visualization*) inicia el asistente de panel.
 
-![Dashboard vacío antes del primer panel](../../docs/capturas/M02/M02-02-dashboard-vacio.png)
+![Dashboard vacío antes del primer panel](../../docs/capturas/m02-explorando-interfaz/M02-02-dashboard-vacio.png)
 
 ### Elegir datasource y consulta TestData
 
 Al pulsar **Add → Visualization**, Grafana muestra el selector de **datasource** antes de abrir el editor completo. **-- Grafana --** (TestData) aparece en la lista sin configuración previa.
 
-![Selector de datasource al añadir visualización](../../docs/capturas/M02/M02-02-add-visualization.png)
+![Selector de datasource al añadir visualización](../../docs/capturas/m02-explorando-interfaz/M02-02-add-visualization.png)
 
 En la pestaña de consulta, el escenario **Random walk** produce una serie continua pseudoaleatoria — suficiente para ver ejes, leyenda y refresco temporal. En el editor, la previsualización se actualiza al cambiar escenario o alias de serie; a la derecha, **Panel options** expone el título visible y opciones de la visualización activa.
 
-![Editor de panel con TestData y previsualización](../../docs/capturas/M02/M02-02-editor-panel.png)
+![Editor de panel con TestData y previsualización](../../docs/capturas/m02-explorando-interfaz/M02-02-editor-panel.png)
 
 ### Time series en el dashboard
 
 Tras **Apply**, el panel queda incrustado en el grid del dashboard. El selector de intervalo temporal (esquina superior derecha) controla la ventana *from–to*; **Refresh** vuelve a ejecutar la consulta. Con TestData la curva cambia ligeramente en cada refresco — comportamiento esperado de datos sintéticos.
 
-![Panel Time series en el dashboard](../../docs/capturas/M02/M02-02-panel-timeseries.png)
+![Panel Time series en el dashboard](../../docs/capturas/m02-explorando-interfaz/M02-02-panel-timeseries.png)
 
 ### Guardar el tablero
 
 **Save dashboard** (icono de disco o menú del dashboard) abre un cuadro de diálogo con **nombre** y, opcionalmente, carpeta. Un nombre como `Lab M02-02` permite recuperarlo después en el listado de **Dashboards**. Tras confirmar **Save**, la URL incluye un identificador único (`/d/…`) compartible dentro de la organización.
 
-![Diálogo Save dashboard con nombre rellenado](../../docs/capturas/M02/M02-02-save-dialog.png)
+![Diálogo Save dashboard con nombre rellenado](../../docs/capturas/m02-explorando-interfaz/M02-02-save-dialog.png)
 
 Tras guardar, el tablero queda en modo vista con el panel ya incrustado:
 
-![Dashboard guardado con panel visible](../../docs/capturas/M02/M02-02-dashboard-guardado.png)
+![Dashboard guardado con panel visible](../../docs/capturas/m02-explorando-interfaz/M02-02-dashboard-guardado.png)
 
 ---
 
@@ -87,7 +87,7 @@ Cuatro bloques encadenados en la misma sesión:
 
 Referencia del punto de partida:
 
-![Dashboard vacío — paso 1](../../docs/capturas/M02/M02-02-dashboard-vacio.png)
+![Dashboard vacío — paso 1](../../docs/capturas/m02-explorando-interfaz/M02-02-dashboard-vacio.png)
 
 ### 1 — Dashboard nuevo
 
@@ -105,9 +105,9 @@ Referencia del punto de partida:
 
 **Resultado esperado:** selector de datasource visible al abrir la visualización; después, editor con curva en la zona de preview.
 
-![Selector de datasource — paso 2](../../docs/capturas/M02/M02-02-add-visualization.png)
+![Selector de datasource — paso 2](../../docs/capturas/m02-explorando-interfaz/M02-02-add-visualization.png)
 
-![Editor TestData — paso 2](../../docs/capturas/M02/M02-02-editor-panel.png)
+![Editor TestData — paso 2](../../docs/capturas/m02-explorando-interfaz/M02-02-editor-panel.png)
 
 ### 3 — Título y Apply
 
@@ -117,7 +117,7 @@ Referencia del punto de partida:
 
 **Resultado esperado:** panel incrustado en el grid con leyenda y título visibles.
 
-![Panel en el dashboard tras Apply — paso 3](../../docs/capturas/M02/M02-02-panel-timeseries.png)
+![Panel en el dashboard tras Apply — paso 3](../../docs/capturas/m02-explorando-interfaz/M02-02-panel-timeseries.png)
 
 ### 4 — Guardar y verificar
 
@@ -127,7 +127,7 @@ Referencia del punto de partida:
 
 **Resultado esperado:** mismo panel tras recargar; entrada `Lab M02-02` en el listado de dashboards.
 
-![Diálogo Save — paso 4](../../docs/capturas/M02/M02-02-save-dialog.png)
+![Diálogo Save — paso 4](../../docs/capturas/m02-explorando-interfaz/M02-02-save-dialog.png)
 
 ---
 

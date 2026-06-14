@@ -12,7 +12,7 @@
 
 - El laboratorio viene **completo en el repo** (`infra/`): fork + Codespace, o Docker / Dev Container en local.
 - Grafana **visualiza y alerta**; Prometheus, Loki y PostgreSQL aportan métricas, logs y datos de demo que conectarás en M03.
-- Este módulo es sobre todo **conceptual y de entorno**; la interfaz en detalle empieza en [M02](../M02/README.md).
+- Este módulo es sobre todo **conceptual y de entorno**; la interfaz en detalle empieza en [M02](../m02-explorando-interfaz/README.md).
 
 ## Cómo está organizado este módulo
 

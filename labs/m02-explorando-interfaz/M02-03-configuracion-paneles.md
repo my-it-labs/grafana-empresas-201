@@ -1,6 +1,6 @@
 # M02-03 — Configuración básica de paneles
 
-[← Página anterior](M02-02-paneles-graficos.md) · [Siguiente página →](../M03/README.md)
+[← Página anterior](M02-02-paneles-graficos.md) · [Siguiente página →](../m03-fuentes-datos/README.md)
 
 Un panel funcional no basta en entorno real: operaciones y negocio esperan **unidades legibles**, **leyendas claras** y, a veces, **otro tipo de gráfico** sin reescribir la consulta. Grafana separa *qué datos pides* (consulta) de *cómo los presentas* (opciones de panel, campo y visualización).
 
@@ -40,35 +40,35 @@ Con el dashboard `Lab M02-02` abierto en el lab, la edición de un panel recuper
 
 Al pulsar el título del panel → **Edit** (o **⋮** → **Edit**), el sidebar derecho muestra **Panel options** arriba. Más abajo, **Standard options** incluye el campo **Unit**: un buscador con categorías (*Misc*, *Data*, *Time*, *Percent*, …). Al abrirlo y buscar *percent*, aparecen opciones como **Percent (0-100)**; al elegir una, la escala del eje Y y las etiquetas de tooltip cambian sin tocar TestData.
 
-![Selector de unidad abierto en Standard options](../../docs/capturas/M02/M02-03-unidad-medida.png)
+![Selector de unidad abierto en Standard options](../../docs/capturas/m02-explorando-interfaz/M02-03-unidad-medida.png)
 
 ### Leyenda en Time series
 
 En visualización **Time series**, la sección **Legend** controla visibilidad, **Placement** (*Bottom*, *Right*, *Hidden*) y qué **Values** aparecen junto a cada entrada. Con una sola serie de Random walk, activar **Last** y **Max** ayuda a leer el valor actual y el pico en la ventana temporal.
 
-![Leyenda con Last y Max activados](../../docs/capturas/M02/M02-03-leyenda.png)
+![Leyenda con Last y Max activados](../../docs/capturas/m02-explorando-interfaz/M02-03-leyenda.png)
 
 ### Panel refinado en modo vista
 
 Tras **Apply**, el panel vuelve al grid del dashboard: el eje Y muestra el formato elegido y la leyenda inferior incluye las columnas configuradas.
 
-![Panel time series con unidad % y leyenda — tras Apply](../../docs/capturas/M02/M02-03-panel-vista.png)
+![Panel time series con unidad % y leyenda — tras Apply](../../docs/capturas/m02-explorando-interfaz/M02-03-panel-vista.png)
 
 ### Cambiar visualización
 
 El desplegable de tipo (icono junto al título del preview, p. ej. *Time series*) lista visualizaciones compatibles. **Bar chart** representa los mismos puntos como barras temporales; **Gauge** muestra un valor agregado (útil cuando el rango es acotado). Tras cambiar tipo, conviene revisar de nuevo **Standard options** porque algunas unidades se interpretan distinto según la visualización.
 
-![Editor del segundo panel con visualización Bar chart](../../docs/capturas/M02/M02-03-bar-chart.png)
+![Editor del segundo panel con visualización Bar chart](../../docs/capturas/m02-explorando-interfaz/M02-03-bar-chart.png)
 
 ### Guardar como nuevo tablero
 
 **Save dashboard** permite renombrar el tablero o guardarlo como copia. Un nombre `Lab M02-03` deja intacto `Lab M02-02` y concentra en un solo dashboard las variantes de configuración practicadas en esta unidad.
 
-![Diálogo Save dashboard con nombre Lab M02-03](../../docs/capturas/M02/M02-03-save-dialog.png)
+![Diálogo Save dashboard con nombre Lab M02-03](../../docs/capturas/m02-explorando-interfaz/M02-03-save-dialog.png)
 
 Vista final con los dos paneles en el grid:
 
-![Dashboard Lab M02-03 con time series y bar chart](../../docs/capturas/M02/M02-03-dashboard-guardado.png)
+![Dashboard Lab M02-03 con time series y bar chart](../../docs/capturas/m02-explorando-interfaz/M02-03-dashboard-guardado.png)
 
 ---
 
@@ -90,7 +90,7 @@ Cinco bloques sobre el dashboard de M02-02:
 
 Referencia del punto de partida (selector de unidad abierto):
 
-![Unidad — referencia paso 2](../../docs/capturas/M02/M02-03-unidad-medida.png)
+![Unidad — referencia paso 2](../../docs/capturas/m02-explorando-interfaz/M02-03-unidad-medida.png)
 
 ### 1 — Abrir el dashboard de M02-02
 
@@ -108,7 +108,7 @@ Referencia del punto de partida (selector de unidad abierto):
 
 **Resultado esperado:** eje Y y tooltips con formato porcentual; leyenda inferior con nombre de serie y columnas Last/Max.
 
-![Leyenda configurada — paso 2](../../docs/capturas/M02/M02-03-leyenda.png)
+![Leyenda configurada — paso 2](../../docs/capturas/m02-explorando-interfaz/M02-03-leyenda.png)
 
 ### 3 — Apply y revisar
 
@@ -118,7 +118,7 @@ Referencia del punto de partida (selector de unidad abierto):
 
 **Resultado esperado:** panel time series con unidad % y leyenda visible en la parte inferior del panel.
 
-![Panel refinado en vista — paso 3](../../docs/capturas/M02/M02-03-panel-vista.png)
+![Panel refinado en vista — paso 3](../../docs/capturas/m02-explorando-interfaz/M02-03-panel-vista.png)
 
 ### 4 — Segundo panel Bar chart
 
@@ -128,7 +128,7 @@ Referencia del punto de partida (selector de unidad abierto):
 
 **Resultado esperado:** editor con barras visibles antes de volver al grid; tras **Apply**, dos paneles en el dashboard.
 
-![Editor Bar chart — paso 4](../../docs/capturas/M02/M02-03-bar-chart.png)
+![Editor Bar chart — paso 4](../../docs/capturas/m02-explorando-interfaz/M02-03-bar-chart.png)
 
 ### 5 — Guardar Lab M02-03
 
@@ -138,9 +138,9 @@ Referencia del punto de partida (selector de unidad abierto):
 
 **Resultado esperado:** dashboard `Lab M02-03` con dos paneles; persistencia tras `F5`.
 
-![Diálogo Save — paso 5](../../docs/capturas/M02/M02-03-save-dialog.png)
+![Diálogo Save — paso 5](../../docs/capturas/m02-explorando-interfaz/M02-03-save-dialog.png)
 
-![Dashboard con dos paneles — paso 5](../../docs/capturas/M02/M02-03-dashboard-guardado.png)
+![Dashboard con dos paneles — paso 5](../../docs/capturas/m02-explorando-interfaz/M02-03-dashboard-guardado.png)
 
 ---
 

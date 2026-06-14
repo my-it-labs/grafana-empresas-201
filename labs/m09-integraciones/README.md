@@ -1,6 +1,6 @@
 # M09 — Integraciones
 
-[← Página anterior](../M08/README.md) · [Siguiente página →](../../README.md)
+[← Página anterior](../m08-administracion/README.md) · [Siguiente página →](../../README.md)
 
 ## Qué aprenderás
 

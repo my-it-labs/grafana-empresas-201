@@ -1,6 +1,6 @@
 # Grafana para empresas
 
-[Siguiente página →](labs/M01/README.md)
+[Siguiente página →](labs/m01-introduccion-grafana/README.md)
 
 Formación **100 % práctica** — observabilidad y dashboards con Grafana.
 
@@ -18,7 +18,7 @@ El repo es **autosuficiente**: incluye Grafana y las fuentes de datos del curso 
 2. En tu fork: **Code → Create codespace on main**.
 3. Espera a que termine de crear el Codespace (el stack arranca solo).
 4. Abre **Grafana** desde la notificación del puerto **3000** o desde la pestaña **Ports**.
-5. Empieza por [M01 — Introducción a Grafana](labs/M01/README.md).
+5. Empieza por [M01 — Introducción a Grafana](labs/m01-introduccion-grafana/README.md).
 
 **También puedes usar**
 
@@ -32,7 +32,7 @@ Credenciales del lab: usuario `admin`, contraseña `admin` (solo formación).
 ## Cómo funciona el curso
 
 - Sigue este README como índice y avanza **página a página** (**← Página anterior · Siguiente página →**).
-- Cada unidad incluye **Conceptos**, **Conclusiones**, **Comprueba tu entendimiento** y **Reto**. Cuando la unidad es un **taller**, añade **En Grafana** y **Laboratorio** (acciones sobre el entorno). Ejemplo: [M02-01](labs/M02/M02-01-navegacion-estructura.md).
+- Cada unidad incluye **Conceptos**, **Conclusiones**, **Comprueba tu entendimiento** y **Reto**. Cuando la unidad es un **taller**, añade **En Grafana** y **Laboratorio** (acciones sobre el entorno). Ejemplo: [M02-01](labs/m02-explorando-interfaz/M02-01-navegacion-estructura.md).
 - El listado de talleres está en **[Índice de laboratorios](labs/LABORATORIOS.md)**.
 
 ---
@@ -43,7 +43,7 @@ Práctica **solo** sobre el entorno del repo: Docker, Grafana, API o terminal.
 
 → **[Índice de laboratorios](labs/LABORATORIOS.md)** — orden recomendado y unidades publicadas
 
-Primer taller: [M01-03 — Instalación](labs/M01/M01-03-instalacion-configuracion.md) (requiere `infra/up.sh`).
+Primer taller: [M01-03 — Instalación](labs/m01-introduccion-grafana/M01-03-instalacion-configuracion.md) (requiere `infra/up.sh`).
 
 ---
 
@@ -52,7 +52,7 @@ Primer taller: [M01-03 — Instalación](labs/M01/M01-03-instalacion-configuraci
 | Requisito | Dónde |
 |-----------|--------|
 | Entorno listo (Grafana + fuentes de datos) | [infra/README.md](infra/README.md) |
-| Validar acceso a Grafana | [M01-03 — Instalación](labs/M01/M01-03-instalacion-configuracion.md) |
+| Validar acceso a Grafana | [M01-03 — Instalación](labs/m01-introduccion-grafana/M01-03-instalacion-configuracion.md) |
 
 ---
 
@@ -60,19 +60,19 @@ Primer taller: [M01-03 — Instalación](labs/M01/M01-03-instalacion-configuraci
 
 | # | Módulo | Índice |
 |---|--------|--------|
-| **M01** | Introducción a Grafana | [labs/M01/](labs/M01/README.md) |
-| **M02** | Explorando la interfaz | [labs/M02/](labs/M02/README.md) |
-| **M03** | Fuentes de datos | [labs/M03/](labs/M03/README.md) |
-| **M04** | Paneles y personalización | [labs/M04/](labs/M04/README.md) |
-| **M05** | Visualizaciones avanzadas | [labs/M05/](labs/M05/README.md) |
-| **M06** | Paneles y datasources personalizados | [labs/M06/](labs/M06/README.md) |
-| **M07** | Tableros y organización | [labs/M07/](labs/M07/README.md) |
-| **M08** | Administración | [labs/M08/](labs/M08/README.md) |
-| **M09** | Integraciones | [labs/M09/](labs/M09/README.md) |
+| **M01** | Introducción a Grafana | [labs/m01-introduccion-grafana/](labs/m01-introduccion-grafana/README.md) |
+| **M02** | Explorando la interfaz | [labs/m02-explorando-interfaz/](labs/m02-explorando-interfaz/README.md) |
+| **M03** | Fuentes de datos | [labs/m03-fuentes-datos/](labs/m03-fuentes-datos/README.md) |
+| **M04** | Paneles y personalización | [labs/m04-paneles-personalizacion/](labs/m04-paneles-personalizacion/README.md) |
+| **M05** | Visualizaciones avanzadas | [labs/m05-visualizaciones-avanzadas/](labs/m05-visualizaciones-avanzadas/README.md) |
+| **M06** | Paneles y datasources personalizados | [labs/m06-paneles-fuentes-personalizados/](labs/m06-paneles-fuentes-personalizados/README.md) |
+| **M07** | Tableros y organización | [labs/m07-tableros-organizacion/](labs/m07-tableros-organizacion/README.md) |
+| **M08** | Administración | [labs/m08-administracion/](labs/m08-administracion/README.md) |
+| **M09** | Integraciones | [labs/m09-integraciones/](labs/m09-integraciones/README.md) |
 
 ---
 
 ## Empieza aquí
 
-→ **[M01 — Introducción a Grafana](labs/M01/README.md)**  
-→ Primer ejercicio: [M01-01 — Qué es Grafana y ventajas](labs/M01/M01-01-que-es-grafana.md)
+→ **[M01 — Introducción a Grafana](labs/m01-introduccion-grafana/README.md)**  
+→ Primer ejercicio: [M01-01 — Qué es Grafana y ventajas](labs/m01-introduccion-grafana/M01-01-que-es-grafana.md)

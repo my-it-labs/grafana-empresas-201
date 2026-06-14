@@ -16,7 +16,7 @@ npm run capturas:m02-02
 npm run capturas:m02-03
 ```
 
-Salida: `docs/capturas/M02/`
+Salida: `docs/capturas/m02-explorando-interfaz/`
 
 Modo visible (depurar selectores):
 

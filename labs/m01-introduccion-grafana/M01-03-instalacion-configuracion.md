@@ -1,6 +1,6 @@
 # M01-03 — Instalación y configuración
 
-[← Página anterior](M01-02-casos-de-uso.md) · [Siguiente página →](../M02/README.md)
+[← Página anterior](M01-02-casos-de-uso.md) · [Siguiente página →](../m02-explorando-interfaz/README.md)
 
 Tras situar qué es Grafana y para qué perfiles sirve (M01-01, M01-02), el curso asume un **entorno reproducible**: contenedores del repo, Grafana accesible y fuentes de demo listas para M03.
 
@@ -55,7 +55,7 @@ Referencia completa: [infra/README.md](../../infra/README.md).
 
 Credenciales de lab: **admin** / **admin**.
 
-![Pantalla de login](../../docs/capturas/M02/M02-01-login.png)
+![Pantalla de login](../../docs/capturas/m02-explorando-interfaz/M02-01-login.png)
 
 Tras **Log in**, en el **primer acceso** aparece *Update your password*. En formación se elige **Skip** para continuar sin bloquear el hilo del curso.
 
@@ -63,7 +63,7 @@ Tras **Log in**, en el **primer acceso** aparece *Update your password*. En form
 
 Tras **Skip**, la vista **Home** confirma sesión válida. En **Administration → General** se revisan preferencias de organización; en **Profile → Preferences**, la **Timezone** del usuario.
 
-![Administration → General](../../docs/capturas/M02/M02-01-admin-general.png)
+![Administration → General](../../docs/capturas/m02-explorando-interfaz/M02-01-admin-general.png)
 
 ---
 
@@ -71,7 +71,7 @@ Tras **Skip**, la vista **Home** confirma sesión válida. En **Administration �
 
 ### Objetivo
 
-Confirmar que el entorno del repo está operativo y que puedes acceder a Grafana antes de [M02](../M02/README.md).
+Confirmar que el entorno del repo está operativo y que puedes acceder a Grafana antes de [M02](../m02-explorando-interfaz/README.md).
 
 ### En qué consiste
 
@@ -97,7 +97,7 @@ cd infra && docker compose ps
 
 **Resultado esperado:** **Home** visible; menú lateral completo.
 
-![Login — paso 2](../../docs/capturas/M02/M02-01-login.png)
+![Login — paso 2](../../docs/capturas/m02-explorando-interfaz/M02-01-login.png)
 
 ### 3 — Organización y timezone
 

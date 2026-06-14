@@ -1,6 +1,6 @@
 # M05 — Visualizaciones avanzadas
 
-[← Página anterior](../M04/README.md) · [Siguiente página →](../M06/README.md)
+[← Página anterior](../m04-paneles-personalizacion/README.md) · [Siguiente página →](../m06-paneles-fuentes-personalizados/README.md)
 
 ## Qué aprenderás
 

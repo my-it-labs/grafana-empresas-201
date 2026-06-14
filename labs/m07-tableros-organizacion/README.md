@@ -1,6 +1,6 @@
 # M07 — Tableros y organización de paneles
 
-[← Página anterior](../M06/README.md) · [Siguiente página →](../M08/README.md)
+[← Página anterior](../m06-paneles-fuentes-personalizados/README.md) · [Siguiente página →](../m08-administracion/README.md)
 
 ## Qué aprenderás
 

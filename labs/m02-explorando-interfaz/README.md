@@ -1,6 +1,6 @@
 # M02 — Explorando la interfaz
 
-[← Página anterior](../M01/M01-03-instalacion-configuracion.md) · [Siguiente página →](M02-01-navegacion-estructura.md)
+[← Página anterior](../m01-introduccion-grafana/M01-03-instalacion-configuracion.md) · [Siguiente página →](M02-01-navegacion-estructura.md)
 
 ## Qué aprenderás
 
@@ -40,4 +40,4 @@ Todas las unidades publicadas de este módulo son **talleres** sobre Grafana en 
 ## Antes de empezar
 
 - Grafana accesible según [infra/README.md](../../infra/README.md).
-- Haber completado [M01-03](../M01/M01-03-instalacion-configuracion.md) o equivalente (entorno en marcha).
+- Haber completado [M01-03](../m01-introduccion-grafana/M01-03-instalacion-configuracion.md) o equivalente (entorno en marcha).

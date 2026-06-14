@@ -35,7 +35,7 @@ Grafana organiza el trabajo en **cuatro ideas**:
 
 En la vista **Home** se ven a la vez la barra superior, el menú lateral y el área central:
 
-![Home — barra superior, menú lateral y canvas central](../../docs/capturas/M02/M02-01-home.png)
+![Home — barra superior, menú lateral y canvas central](../../docs/capturas/m02-explorando-interfaz/M02-01-home.png)
 
 ---
 
@@ -47,7 +47,7 @@ La instancia del lab está en `http://localhost:3000` (puerto **3000** reenviado
 
 Al cargar la URL aparece el formulario de login. En el entorno del curso las credenciales son **admin** / **admin**; tras **Log in**, Grafana valida la sesión contra la base interna del contenedor.
 
-![Pantalla de login](../../docs/capturas/M02/M02-01-login.png)
+![Pantalla de login](../../docs/capturas/m02-explorando-interfaz/M02-01-login.png)
 
 En el **primer acceso** suele mostrarse la pantalla *Update your password*, con aviso de riesgo si se mantiene la contraseña por defecto. En formación se elige **Skip**: no afecta al resto del lab y evita bloquear el hilo de la unidad.
 
@@ -79,7 +79,7 @@ En el dock izquierdo cada entrada materializa una de las cuatro ideas de **Conce
 
 Al seleccionar **Administration → General**, el breadcrumb pasa a `Home > Administration > General` y el área central muestra tarjetas como *Default preferences*, *Organizations* o *Stats and license*:
 
-![Administration → General](../../docs/capturas/M02/M02-01-admin-general.png)
+![Administration → General](../../docs/capturas/m02-explorando-interfaz/M02-01-admin-general.png)
 
 *Connections* y *Administration* concentran tareas de integración y gobierno; en producción suelen restringirse por rol.
 
@@ -87,7 +87,7 @@ Al seleccionar **Administration → General**, el breadcrumb pasa a `Home > Admi
 
 Con `Ctrl+K` / `Cmd+K` se abre un buscador de páginas y acciones. Al teclear `data sources` y elegir el resultado homónimo, la aplicación navega a la misma pantalla que *Connections → Data sources*.
 
-![Data sources — destino equivalente a la búsqueda global](../../docs/capturas/M02/M02-01-data-sources.png)
+![Data sources — destino equivalente a la búsqueda global](../../docs/capturas/m02-explorando-interfaz/M02-01-data-sources.png)
 
 Aquí el breadcrumb es `Home > Connections > Data sources`. Compararlo con el de **Administration** ayuda a fijar la taxonomía de Grafana: *Connections* agrupa integraciones técnicas; *Administration*, gobierno de la plataforma.
 
@@ -119,7 +119,7 @@ Cada paso sigue **Acción → Por qué → Resultado esperado**. Al terminar deb
 
 Punto de partida habitual tras el login:
 
-![Home — referencia para los pasos 1 y 4](../../docs/capturas/M02/M02-01-home.png)
+![Home — referencia para los pasos 1 y 4](../../docs/capturas/m02-explorando-interfaz/M02-01-home.png)
 
 ### 1 — Acceso y comprobación de sesión
 
@@ -129,7 +129,7 @@ Punto de partida habitual tras el login:
 
 **Resultado esperado:** pantalla **Home** con menú lateral completo y breadcrumb `Home`.
 
-![Login — primer paso del laboratorio](../../docs/capturas/M02/M02-01-login.png)
+![Login — primer paso del laboratorio](../../docs/capturas/m02-explorando-interfaz/M02-01-login.png)
 
 ### 2 — Recorrido por el menú lateral
 
@@ -139,7 +139,7 @@ Punto de partida habitual tras el login:
 
 **Resultado esperado:** en **Data sources** aparece el estado sin fuentes o con las que hayas creado antes; en **Administration → General**, las tarjetas de ajustes como en la captura siguiente.
 
-![Administration → General — una parada del paso 2](../../docs/capturas/M02/M02-01-admin-general.png)
+![Administration → General — una parada del paso 2](../../docs/capturas/m02-explorando-interfaz/M02-01-admin-general.png)
 
 ### 3 — Búsqueda global hasta Data sources
 
@@ -149,7 +149,7 @@ Punto de partida habitual tras el login:
 
 **Resultado esperado:** misma pantalla que en el paso 2, breadcrumb `Home > Connections > Data sources` (como en la captura).
 
-![Data sources — validación del paso 3](../../docs/capturas/M02/M02-01-data-sources.png)
+![Data sources — validación del paso 3](../../docs/capturas/m02-explorando-interfaz/M02-01-data-sources.png)
 
 ### 4 — Breadcrumbs de vuelta a Home
 
@@ -167,7 +167,7 @@ Punto de partida habitual tras el login:
 
 **Resultado esperado:** en **Explore** el breadcrumb incluye la sección Explore y, si hay fuentes configuradas, el selector de datasource; la captura muestra el editor de consultas vacío o con fuente por defecto:
 
-![Explore — resultado del paso 5](../../docs/capturas/M02/M02-01-explore.png)
+![Explore — resultado del paso 5](../../docs/capturas/m02-explorando-interfaz/M02-01-explore.png)
 
 ### 6 — Organización y preferencias por defecto
 

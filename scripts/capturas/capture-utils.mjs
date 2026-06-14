@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const REPO_ROOT = path.resolve(__dirname, "../..");
-export const CAPTURAS_M02 = path.join(REPO_ROOT, "docs/capturas/M02");
+export const CAPTURAS_M02 = path.join(REPO_ROOT, "docs/capturas/m02-explorando-interfaz");
 export const BASE = process.env.GRAFANA_URL ?? "http://localhost:3000";
 export const TESTDATA = { type: "grafana-testdata-datasource", uid: "grafana" };
 

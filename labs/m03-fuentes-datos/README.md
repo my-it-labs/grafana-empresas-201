@@ -1,6 +1,6 @@
 # M03 — Fuentes de datos
 
-[← Página anterior](../M02/README.md) · [Siguiente página →](../M04/README.md)
+[← Página anterior](../m02-explorando-interfaz/README.md) · [Siguiente página →](../m04-paneles-personalizacion/README.md)
 
 ## Qué aprenderás
 

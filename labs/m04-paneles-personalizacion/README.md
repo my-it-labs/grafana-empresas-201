@@ -1,6 +1,6 @@
 # M04 — Creación y personalización de paneles
 
-[← Página anterior](../M03/README.md) · [Siguiente página →](../M05/README.md)
+[← Página anterior](../m03-fuentes-datos/README.md) · [Siguiente página →](../m05-visualizaciones-avanzadas/README.md)
 
 ## Qué aprenderás
 
