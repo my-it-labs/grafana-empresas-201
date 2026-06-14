@@ -1,0 +1,14 @@
+{
+  "name": "grafana-empresas-capturas",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "capturas": "node capture-lab.mjs",
+    "capturas:headed": "HEADED=1 node capture-lab.mjs",
+    "capturas:m02-02": "node capture-m02-02.mjs",
+    "capturas:m02-03": "node capture-m02-03.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.52.0"
+  }
+}

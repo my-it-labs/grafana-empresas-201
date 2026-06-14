@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-06-14T10:33:44.198Z",
+  "grafanaUrl": "http://localhost:3000",
+  "browser": "Google Chrome (system) via Playwright",
+  "steps": [
+    "Login Grafana",
+    "Administration → General",
+    "Connections → Data sources",
+    "Alta datasource Prometheus",
+    "Explore — consulta Prometheus"
+  ],
+  "files": [
+    "M01-login-formulario.png",
+    "M01-login-home.png",
+    "M01-admin-general.png",
+    "M03-datasources-lista.png",
+    "M03-prometheus-formulario.png",
+    "M03-prometheus-save-test.png",
+    "M03-explore-inicio.png",
+    "M03-explore-prometheus-query.png"
+  ]
+}
