@@ -26,3 +26,5 @@ Todas las unidades incluyen **Laboratorio**. Índice: [Laboratorios](../LABORATO
 
 - Al menos un dashboard `Lab M04-xx` o `Lab M05-xx` guardado.
 - Datasources `Prometheus-Lab`, `PostgreSQL-Lab` y `Loki-Lab` operativos ([M03](../m03-fuentes-datos/README.md)).
+
+> Si reseteaste el entorno y no conservas esos dashboards, recréalos rápidamente con las consultas incluidas en [M04](../m04-paneles-personalizacion/README.md) / [M05](../m05-visualizaciones-avanzadas/README.md), o parte del dashboard provisionado de ejemplo ([M09-01](../m09-integraciones/M09-01-versionado-provisioning.md)).

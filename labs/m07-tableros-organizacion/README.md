@@ -27,3 +27,5 @@ Todas las unidades incluyen **Laboratorio**. Índice: [Laboratorios](../LABORATO
 
 - Varios dashboards del lab guardados (M04–M06).
 - Rol **Admin** en Grafana (usuario `admin` del entorno).
+
+> Si reseteaste el entorno y faltan dashboards, recréalos con las consultas de [M04](../m04-paneles-personalizacion/README.md) / [M05](../m05-visualizaciones-avanzadas/README.md) antes de organizar filas, links y carpetas.

@@ -92,7 +92,7 @@ Dashboard `Lab M06-02` con panel Mixed (Prometheus + PostgreSQL), al menos una t
 sum(rate(node_network_receive_bytes_total{job="node-exporter", device!~"lo|veth.*"}[5m]))
 ```
 
-Unit **bytes/sec(SI)**. RefId **A**.
+Unit **bytes/sec (SI)** (`Bps`). RefId **A**.
 
 **Query B — PostgreSQL-Lab:**
 
@@ -126,7 +126,7 @@ WHERE $__timeFilter(d.day)
 GROUP BY r.code
 ```
 
-**Add field from calculation:** `orders` / `revenue` * 1000 como proxy de ticket medio (demo).
+**Add field from calculation:** `revenue` / `orders` como **ticket medio** (€/pedido) por región.
 
 **Por qué:** transformaciones evitan duplicar lógica en SQL y PromQL cuando el cálculo es presentacional.
 

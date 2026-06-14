@@ -96,6 +96,8 @@ Crea carpeta `exports/` en tu fork si no existe (añade a `.gitignore` local opc
 
 **Resultado esperado:** archivo JSON con `panels` y `uid`.
 
+> El export referencia el **uid del datasource** `Prometheus-Lab`. Si lo reimportas en un entorno donde el provisioning crea `Prometheus-Provisioned` (uid distinto), el panel saldrá vacío hasta reasignar el datasource. Mantén nombres/uids estables entre entornos para evitarlo.
+
 ### 2 — Git
 
 **Acción:** copia JSON saneado a `infra/grafana/provisioning/examples/dashboards/lab-m04-01.json` (o documenta diff en PR). Anota mensaje de commit tipo: `Add provisioned export Lab M04-01`.
@@ -131,11 +133,19 @@ cd infra && docker compose up -d grafana
 
 **Resultado esperado:** datasource `Prometheus-Provisioned` y dashboard en folder Provisioned.
 
-### 5 — Reset simulado
+### 5 — Recargar provisioning (no destructivo)
 
-**Acción:** anota uid provisionado. Tras `docker compose down -v` + `up` con provisioning montado, dashboard reaparece sin import manual.
+**Acción:** edita el JSON en `examples/dashboards/`, guarda y recarga sin tocar datos:
 
-**Resultado esperado:** recuperación automática desde Git-mounted files.
+```bash
+cd infra && docker compose restart grafana
+```
+
+El dashboard provisionado refleja el cambio del archivo al reiniciar el servicio; tus `Lab MXX-YY` manuales siguen intactos.
+
+**Resultado esperado:** el dashboard provisionado se actualiza desde el archivo; el resto del entorno se conserva.
+
+> ⚠️ **Reset destructivo (opcional, fuera del flujo del curso):** `docker compose down -v` **borra el volumen `grafana-data`** y con él **todos** tus dashboards, alert rules, usuarios y library panels de M02–M08. Solo el dashboard provisionado reaparecería al volver a montar provisioning. Úsalo únicamente en un fork desechable o cuando quieras empezar de cero.
 
 ---
 
@@ -162,9 +172,9 @@ Archivo JSON contiene clave `"uid"`.
 Datasources tras montar examples.  
 → Entrada con etiqueta provisioned.
 
-**down -v**  
-Tras reset con provisioning, ¿dashboard manual M04-01?  
-→ Desaparece si no estaba en Git/provisioning; provisioned reaparece.
+**Recarga vs reset**  
+¿Qué pierde `restart grafana` frente a `down -v`?  
+→ `restart` no pierde nada (recarga provisioning); `down -v` borra el volumen y todos los dashboards manuales.
 
 ---
 

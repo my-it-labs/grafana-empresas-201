@@ -27,7 +27,7 @@ Al cerrar la unidad deberías:
 
 **Tags:** etiquetas libres (`lab`, `ops`, `m07`) indexadas por **Dashboards → Browse** y búsqueda global.
 
-**Folders:** agrupan dashboards por equipo o entorno ([M08](M08-02-permisos-carpetas.md) aplica permisos). En el lab usa carpeta `Lab`.
+**Folders:** agrupan dashboards por equipo o entorno ([M08](M08-02-permisos-carpetas.md) aplica permisos). En el lab usarás `Lab Ops` / `Lab Business`, que se crean en [M07-03](M07-03-carpetas-playlists.md).
 
 **Variables en URL:** `var-<nombre>=valor` sincroniza selectores al llegar desde enlace ([M02-04](../m02-explorando-interfaz/M02-04-variables-dashboard.md), [M04-04](../m04-paneles-personalizacion/M04-04-filtros-agrupamientos.md)).
 
@@ -61,7 +61,7 @@ Al cerrar la unidad deberías:
 
 ### Objetivo
 
-Dashboard `Lab M07-01` índice con filas Ops/Business, links a `Lab M04-04` y `Lab M05-02`, tags y carpeta Lab.
+Dashboard `Lab M07-01` índice con filas Ops/Business, links a `Lab M04-04` y `Lab M05-02` y tags. La organización en carpetas se aborda en [M07-03](M07-03-carpetas-playlists.md).
 
 ### En qué consiste
 
@@ -108,7 +108,7 @@ En barra superior aparece enlace. Ábrelo y comprueba selector `region` si exist
 
 ### 4 — Metadatos y save
 
-**Acción:** **Tags:** `lab`, `overview`, `m07`. **Folder:** Lab (crear si falta). **Save** `Lab M07-01`.
+**Acción:** **Tags:** `lab`, `overview`, `m07`. Guarda en la carpeta por defecto (las carpetas `Lab Ops` / `Lab Business` se crean en [M07-03](M07-03-carpetas-playlists.md)). **Save** `Lab M07-01`.
 
 ```bash
 curl -s -u admin:admin "http://localhost:3000/api/search?tag=overview" | python3 -m json.tool

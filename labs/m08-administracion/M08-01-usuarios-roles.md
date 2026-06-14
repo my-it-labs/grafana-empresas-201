@@ -10,7 +10,7 @@ En esta unidad darás de alta **viewer.lab** y **editor.lab**, comprobarás dife
 
 Al cerrar la unidad deberías:
 
-- Crear usuarios locales en **Administration → Users and access → Users**.
+- Crear usuarios locales en **Administration → Users** (server admin) y asignar rol en **Users and access**.
 - Asignar roles **Viewer**, **Editor** y **Admin** a nivel organización.
 - Identificar menús y acciones restringidas por rol.
 - Validar login de **viewer.lab** sin permisos de edición.
@@ -39,13 +39,13 @@ Al cerrar la unidad deberías:
 
 ## En Grafana
 
-**Administration → Users and access → Users → Add user**:
+Para crear un usuario local con contraseña: **Administration → Users → New user** (server admin):
 - Name: `viewer.lab`  
 - Email: `viewer@lab.local`  
 - Username: `viewer.lab`  
 - Password: `viewer` (solo lab)  
 
-**Permissions** → role **Viewer**. Repite con `editor.lab` / **Editor**.
+Después, en **Administration → Users and access → Users** (org users) ajusta su **Role** a **Viewer**. Repite con `editor.lab` / **Editor**.
 
 **Switch user** no existe nativamente: prueba en ventana privada o otro navegador.
 
@@ -73,7 +73,7 @@ Usuarios `viewer.lab` (Viewer) y `editor.lab` (Editor) creados; checklist de cap
 
 ### 1 — Usuario Viewer
 
-**Acción:** **Add user** `viewer.lab`, password `viewer`, role **Viewer**.
+**Acción:** **Administration → Users → New user** `viewer.lab`, password `viewer`; luego role **Viewer**.
 
 **Por qué:** simula consumidor de dashboards ejecutivos.
 
@@ -81,7 +81,7 @@ Usuarios `viewer.lab` (Viewer) y `editor.lab` (Editor) creados; checklist de cap
 
 ### 2 — Usuario Editor
 
-**Acción:** **Add user** `editor.lab`, password `editor`, role **Editor**.
+**Acción:** **Administration → Users → New user** `editor.lab`, password `editor`; luego role **Editor**.
 
 **Resultado esperado:** segundo usuario con rol superior a Viewer.
 

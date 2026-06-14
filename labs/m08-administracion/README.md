@@ -29,3 +29,5 @@ Todas las unidades incluyen **Laboratorio**. Índice: [Laboratorios](../LABORATO
 - Rol **Admin** (`admin` / `admin`).
 - Carpetas **Lab Ops** / **Lab Business** ([M07-03](../m07-tableros-organizacion/M07-03-carpetas-playlists.md)).
 - Al menos una alert rule activa ([M05-04](../m05-visualizaciones-avanzadas/M05-04-alertas-umbrales.md)).
+
+> Si reseteaste el entorno, recrea primero las carpetas (M07-03) y la alert rule (M05-04): los permisos y las políticas de notificación operan sobre esos recursos.

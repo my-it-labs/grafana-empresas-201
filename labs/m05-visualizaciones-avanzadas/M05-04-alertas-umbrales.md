@@ -99,7 +99,7 @@ Dashboard `Lab M05-04` con panel CPU con thresholds visuales y al menos una **al
 - **Expression B:** Reduce **Last** of A  
 - **Condition:** IS BELOW 1  
 - **For:** 1m  
-- **Folder:** Lab (crear si falta)  
+- **Folder:** `Lab Alerts` (carpeta de reglas; crear si falta)  
 - **Evaluation group:** `lab-evaluation` interval 1m  
 
 **Save rule**.
@@ -116,7 +116,7 @@ Dashboard `Lab M05-04` con panel CPU con thresholds visuales y al menos una **al
 
 **Por qué:** patrón SLO ops realista.
 
-**Resultado esperado:** segunda regla en carpeta Lab.
+**Resultado esperado:** segunda regla en carpeta `Lab Alerts`.
 
 ### 4 — Dashboard y verificación
 

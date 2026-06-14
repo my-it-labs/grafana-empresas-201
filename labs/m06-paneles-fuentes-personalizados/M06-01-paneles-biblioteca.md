@@ -28,7 +28,7 @@ Un **Library panel** es un panel maestro almacenado fuera de un dashboard concre
 | **Edit library panel** | Propaga cambios a consumidores vinculados |
 | **Unlink** | Convierte la referencia en panel local editable sin afectar la biblioteca |
 
-**Library panel folder** organiza paneles reutilizables (p. ej. `Lab / Ops`, `Lab / Business`). No confundir con **dashboard folders** (M07/M08).
+**Library panel folder** organiza paneles reutilizables; en el lab usa `Lab panels`. Es una jerarquía **independiente** de los **dashboard folders** (`Lab Ops` / `Lab Business`, M07-03/M08).
 
 **Cuándo usar biblioteca:** KPIs corporativos, paneles auditados por SRE, bloques estándar de runbook. **Cuándo no:** experimentos rápidos o paneles con variables muy específicas de un solo tablero.
 

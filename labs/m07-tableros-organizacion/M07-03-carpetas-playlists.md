@@ -10,7 +10,7 @@ En esta unidad organizarás dashboards del lab en carpetas, crearás una playlis
 
 Al cerrar la unidad deberías:
 
-- Crear carpetas **Lab / Ops** y **Lab / Business** y mover dashboards.
+- Crear carpetas **Lab Ops** y **Lab Business** y mover dashboards.
 - Configurar **playlist** con al menos tres dashboards del curso.
 - Usar **TV mode** o **Kiosk** y **auto refresh** para mural operativo.
 - Documentar convención de nombres `Lab Mxx-yy` en dashboard de índice.
@@ -71,7 +71,7 @@ Carpetas Ops/Business pobladas, playlist `Lab NOC rotation` funcional y dashboar
 - Ops: `Lab M04-01`, `Lab M05-04`, `Lab M07-02`  
 - Business: `Lab M04-02`, `Lab M04-04`, `Lab M05-03`  
 
-Mantén `Lab M07-01` en folder `Lab` raíz o `Lab Ops` como índice.
+Mantén `Lab M07-01` en `Lab Ops` como índice (o en la carpeta por defecto si prefieres tenerlo a la vista).
 
 **Por qué:** separación ops/negocio es patrón enterprise antes de RBAC.
 
