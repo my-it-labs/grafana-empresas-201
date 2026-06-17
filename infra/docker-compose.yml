@@ -2,24 +2,16 @@
 # Uso: cd infra && docker compose up -d
 
 services:
-
-  web-server:
-    image: nginx
-    # container_name: web-server
-    volumes:
-      - ./data:/usr/share/nginx/html:ro
-    ports:
-      - 8081:80
   grafana:
     image: grafana/grafana:11.5.2
     container_name: grafana-lab
-    # depends_on:
-    #   prometheus:
-    #     condition: service_started
-    #   postgres:
-    #     condition: service_healthy
-    #   loki:
-    #     condition: service_started
+    depends_on:
+      prometheus:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+      loki:
+        condition: service_started
     ports:
       - "3000:3000"
     environment:
@@ -36,6 +28,9 @@ services:
   prometheus:
     image: prom/prometheus:v3.2.1
     container_name: prometheus-lab
+    depends_on:
+      node-exporter:
+        condition: service_started
     command:
       - --config.file=/etc/prometheus/prometheus.yml
       - --storage.tsdb.path=/prometheus
@@ -47,42 +42,17 @@ services:
       - prometheus-data:/prometheus
     restart: unless-stopped
 
-
   node-exporter:
-    image: quay.io/prometheus/node-exporter:latest
-    container_name: node-exporter
-    command:
-      - '--path.rootfs=/host'
-    # network_mode: host
-    # pid: host
+    image: prom/node-exporter:v1.9.0
+    container_name: node-exporter-lab
+    # Sin montajes de host: métricas del contenedor (portable en Codespaces / Docker Desktop).
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:9100/metrics | grep -q node_cpu_seconds_total"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 10s
     restart: unless-stopped
-    ports:
-      - 9100:9100
-    # volumes:
-    #   - '/:/host:ro,rslave'
-
-  node-exporter2:
-    image: quay.io/prometheus/node-exporter:latest
-    container_name: node-exporter2
-    command:
-      - '--path.rootfs=/host'
-    # network_mode: host
-    # pid: host
-    restart: unless-stopped
-    # volumes:
-    #   - '/:/host:ro,rslave'
-
-
-  node-exporter3:
-    image: quay.io/prometheus/node-exporter:latest
-    container_name: node-exporter3
-    command:
-      - '--path.rootfs=/host'
-    # network_mode: host
-    # pid: host
-    restart: unless-stopped
-    # volumes:
-    #   - '/:/host:ro,rslave'
 
   postgres:
     image: postgres:16-alpine
@@ -103,45 +73,6 @@ services:
       retries: 20
     restart: unless-stopped
 
-  # postgres-exporter:
-  #   image: prometheuscommunity/postgres-exporter:v0.17.1
-  #   container_name: postgres-exporter-lab
-  #   depends_on:
-  #     postgres:
-  #       condition: service_healthy
-  #   environment:
-  #     DATA_SOURCE_NAME: "postgresql://grafana:grafana@postgres:5432/lab?sslmode=disable"
-  #   ports:
-  #     - "9187:9187"
-  #   restart: unless-stopped
-
-
-
-  # pgadmin:
-  #   image: dpage/pgadmin4:9.5
-  #   container_name: pgadmin-lab
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: admin@example.com
-  #     PGADMIN_DEFAULT_PASSWORD: admin
-  #     PGADMIN_CONFIG_SERVER_MODE: 'False'
-  #   ports:
-  #     - "5050:80"
-  #   volumes:
-  #     - pgadmin-data:/var/lib/pgadmin
-  #   restart: unless-stopped
-
-
-  adminer:
-    image: adminer:5
-    container_name: adminer-lab
-    # depends_on:
-    #   postgres:
-    #     condition: service_healthy
-    ports:
-      - "8080:8080"
-    restart: unless-stopped
-
-
   loki:
     image: grafana/loki:3.4.2
     container_name: loki-lab
@@ -156,11 +87,11 @@ services:
   promtail:
     image: grafana/promtail:3.4.2
     container_name: promtail-lab
-    # depends_on:
-    #   loki:
-    #     condition: service_started
-    #   loggen:
-    #     condition: service_started
+    depends_on:
+      loki:
+        condition: service_started
+      loggen:
+        condition: service_started
     command: -config.file=/etc/promtail/config.yml
     volumes:
       - ./promtail/promtail-config.yaml:/etc/promtail/config.yml:ro
@@ -196,4 +127,3 @@ volumes:
   postgres-data:
   loki-data:
   lab-logs:
-  pgadmin-data:

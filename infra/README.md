@@ -125,6 +125,46 @@ Ejemplos declarativos en [`grafana/provisioning/examples/`](grafana/provisioning
 
 ---
 
+## node-exporter no funciona (paneles CPU/red vacíos)
+
+Síntoma habitual en **M03-02** (`up` sin `job="node-exporter"`), **M04-01** (`node_cpu_seconds_total` vacío) o alertas de **M05-04**: Prometheus no scrapea el exporter.
+
+El stack usa **node-exporter sin montajes de host** (métricas del contenedor). Es la opción más portable en Codespaces y Docker Desktop; las consultas del curso (`node_cpu_*`, `node_network_*`, `up`) funcionan igual.
+
+### Comprobación rápida (3 comandos)
+
+```bash
+cd infra
+docker compose ps node-exporter          # debe estar Up
+curl -s http://localhost:9090/api/v1/targets | grep -A2 node-exporter
+curl -s 'http://localhost:9090/api/v1/query?query=up' | grep node-exporter
+```
+
+Esperado: target **health: up** y valor `"1"` en la serie `job="node-exporter"`.
+
+En **Grafana → Explore → Prometheus-Lab**, ejecuta `up` y `node_cpu_seconds_total` con **Last 15 minutes**. Si solo ves `job="prometheus"`, el problema está en el scrape, no en el panel.
+
+### Causas frecuentes
+
+| Causa | Qué hacer |
+|-------|-----------|
+| Stack no arrancado o incompleto | `bash infra/up.sh` (ahora valida también node-exporter) |
+| Paraste el exporter en el reto M05-04 | `cd infra && docker compose start node-exporter` |
+| Contenedor no arranca | `docker compose logs node-exporter --tail 30` |
+| Primer scrape aún no ocurrió | Espera ~30 s tras `up.sh` (intervalo 15 s) |
+| Datasource Grafana mal configurada | URL debe ser `http://prometheus:9090`, no `localhost:9090` |
+
+### Reinicio de métricas
+
+```bash
+cd infra
+docker compose restart node-exporter prometheus
+sleep 20
+curl -s 'http://localhost:9090/api/v1/query?query=up{job="node-exporter"}'
+```
+
+---
+
 ## Diagnóstico
 
 ```bash
