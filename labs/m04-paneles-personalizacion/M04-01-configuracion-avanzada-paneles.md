@@ -102,7 +102,7 @@ Visualización **Time series**. Título `CPU usage (node)`.
 
 Demo útil para series CPU por `mode`:
 
-- **Fields with name matching regex:** `^.*(idle|user).*$`
+- **Fields with name matching regex:** `/^.*(idle|user).*$/`
 - **Display name:** `CPU ${__field.labels.instance} (${__field.labels.mode})`
 
 Nota: en overrides, el nombre dinámico se toma de variables `${__field...}`; los grupos capturados de regex (`$1`, `$2`) no se interpolan en `Display name`.
