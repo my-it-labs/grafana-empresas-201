@@ -3,7 +3,7 @@
 
 services:
   grafana:
-    image: grafana/grafana:11.5.2
+    image: grafana/grafana:11.5.21
     container_name: grafana-lab
     depends_on:
       prometheus:
@@ -40,13 +40,17 @@ services:
     restart: unless-stopped
 
   node-exporter:
-    image: prom/node-exporter:v1.9.0
-    container_name: node-exporter-lab
+    image: quay.io/prometheus/node-exporter:latest
+    container_name: node-exporter
     command:
-      - --path.rootfs=/host
-    volumes:
-      - /:/host:ro,rslave
+      - '--path.rootfs=/host'
+    # network_mode: host
+    # pid: host
     restart: unless-stopped
+    ports:
+      - 9100:9100
+    # volumes:
+    #   - '/:/host:ro,rslave'
 
   postgres:
     image: postgres:16-alpine
@@ -114,6 +118,17 @@ services:
     volumes:
       - lab-logs:/logs
     restart: unless-stopped
+
+  adminer:
+    image: adminer:5
+    container_name: adminer-lab
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
 
 volumes:
   grafana-data:
