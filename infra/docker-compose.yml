@@ -73,6 +73,17 @@ services:
     #   - '/:/host:ro,rslave'
 
 
+  node-exporter3:
+    image: quay.io/prometheus/node-exporter:latest
+    container_name: node-exporter3
+    command:
+      - '--path.rootfs=/host'
+    # network_mode: host
+    # pid: host
+    restart: unless-stopped
+    # volumes:
+    #   - '/:/host:ro,rslave'
+
   postgres:
     image: postgres:16-alpine
     container_name: postgres-lab
