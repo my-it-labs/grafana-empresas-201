@@ -8,6 +8,8 @@ En este curso, **laboratorio** significa **taller práctico**: acciones verifica
 
 Detalle del entorno: [infra/README.md](../infra/README.md).
 
+**Dashboards de ejemplo:** cada módulo incluye JSON importables en `labs/mXX-*/examples/`. Índice: [examples/README.md](examples/README.md) — **Dashboards → Import → Upload JSON** y mapea `Prometheus-Lab` / `PostgreSQL-Lab`.
+
 ---
 
 ## Talleres publicados

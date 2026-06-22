@@ -24,6 +24,17 @@
 
 Todas las unidades incluyen **Laboratorio**. Índice: [Laboratorios](../LABORATORIOS.md).
 
+## Dashboards de ejemplo
+
+JSON importables en [`examples/`](examples/):
+
+- [`lab-m05-01-series-temporales.json`](examples/lab-m05-01-series-temporales.json)
+- [`lab-m05-02-tablas.json`](examples/lab-m05-02-tablas.json)
+- [`lab-m05-03-geomap.json`](examples/lab-m05-03-geomap.json)
+- [`lab-m05-04-alertas.json`](examples/lab-m05-04-alertas.json)
+
+Índice global: [labs/examples/README.md](../examples/README.md).
+
 ## Antes de empezar
 
 - Fuentes del lab registradas y al menos un dashboard M04 guardado (consultas PromQL/SQL validadas).

@@ -22,6 +22,13 @@
 
 Todas las unidades incluyen **Laboratorio**. Índice: [Laboratorios](../LABORATORIOS.md).
 
+## Dashboards de ejemplo
+
+- [`lab-m09-01-provisioned-export.json`](examples/lab-m09-01-provisioned-export.json)
+- [`lab-m09-02-api-import.json`](examples/lab-m09-02-api-import.json)
+
+Índice global: [labs/examples/README.md](../examples/README.md).
+
 ## Antes de empezar
 
 - Rol **Admin** y dashboards Lab existentes.

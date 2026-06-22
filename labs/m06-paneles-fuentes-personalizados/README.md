@@ -22,6 +22,13 @@
 
 Todas las unidades incluyen **Laboratorio**. Índice: [Laboratorios](../LABORATORIOS.md).
 
+## Dashboards de ejemplo
+
+- [`lab-m06-01-biblioteca-base.json`](examples/lab-m06-01-biblioteca-base.json)
+- [`lab-m06-02-mixed.json`](examples/lab-m06-02-mixed.json)
+
+Índice global: [labs/examples/README.md](../examples/README.md).
+
 ## Antes de empezar
 
 - Al menos un dashboard `Lab M04-xx` o `Lab M05-xx` guardado.

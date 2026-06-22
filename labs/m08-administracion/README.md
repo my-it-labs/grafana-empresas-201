@@ -24,6 +24,14 @@
 
 Todas las unidades incluyen **Laboratorio**. Índice: [Laboratorios](../LABORATORIOS.md).
 
+## Dashboards de ejemplo
+
+- [`lab-m08-01-usuarios-roles.json`](examples/lab-m08-01-usuarios-roles.json)
+- [`lab-m08-02-permisos-carpetas.json`](examples/lab-m08-02-permisos-carpetas.json)
+- [`lab-m08-03-contact-points.json`](examples/lab-m08-03-contact-points.json)
+
+Índice global: [labs/examples/README.md](../examples/README.md).
+
 ## Antes de empezar
 
 - Rol **Admin** (`admin` / `admin`).

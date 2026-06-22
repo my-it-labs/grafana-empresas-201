@@ -27,6 +27,12 @@ M03-01 es lectura y autoevaluación; los talleres empiezan en M03-02.
 
 → [Índice de laboratorios del curso](../LABORATORIOS.md)
 
+## Dashboards de ejemplo
+
+- [`lab-m03-datasources-smoke.json`](examples/lab-m03-datasources-smoke.json) — smoke test Prometheus + PostgreSQL tras M03-03
+
+Índice global: [labs/examples/README.md](../examples/README.md).
+
 ## Antes de empezar
 
 - Stack en marcha (`bash infra/up.sh`) y [M02-04](../m02-explorando-interfaz/M02-04-variables-dashboard.md) completado (paneles y variables con TestData).

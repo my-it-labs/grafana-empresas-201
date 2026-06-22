@@ -1,0 +1,95 @@
+{
+  "__inputs": [],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.5.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    }
+  ],
+  "uid": "lab-m02-04",
+  "title": "Lab M02-04 — Variables",
+  "tags": [
+    "lab",
+    "example",
+    "m02",
+    "variables"
+  ],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "CPU demo — $scenario",
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "grafana"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "grafana"
+          },
+          "refId": "A",
+          "scenarioId": "$scenario"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      }
+    }
+  ],
+  "templating": {
+    "list": [
+      {
+        "name": "scenario",
+        "label": "Escenario demo",
+        "type": "custom",
+        "query": "random_walk,csv_metric",
+        "includeAll": false,
+        "multi": false,
+        "current": {
+          "text": "random_walk",
+          "value": "random_walk"
+        },
+        "options": []
+      },
+      {
+        "name": "interval",
+        "label": "Resolución",
+        "type": "interval",
+        "query": "1m,5m,15m,30m,1h",
+        "auto": true,
+        "auto_count": 30,
+        "auto_min": "10s",
+        "current": {
+          "text": "5m",
+          "value": "5m"
+        },
+        "options": []
+      }
+    ]
+  }
+}

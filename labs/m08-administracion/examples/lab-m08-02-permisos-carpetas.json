@@ -1,0 +1,52 @@
+{
+  "__inputs": [],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.5.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    }
+  ],
+  "uid": "lab-m08-02",
+  "title": "Lab M08-02 — Permisos carpetas",
+  "tags": [
+    "lab",
+    "example",
+    "m08"
+  ],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "text",
+      "title": "Carpetas",
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "Guarda este dashboard en carpeta **Lab Ops**. Asigna permisos de carpeta a team **Lab Editors**."
+      }
+    }
+  ],
+  "templating": {
+    "list": []
+  }
+}

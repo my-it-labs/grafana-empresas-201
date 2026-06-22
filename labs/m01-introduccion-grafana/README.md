@@ -28,6 +28,14 @@ M01-01 y M01-02 son lectura y autoevaluación; el primer **laboratorio** del cur
 
 Empieza por [M01-01 — Qué es Grafana y ventajas](M01-01-que-es-grafana.md).
 
+## Dashboards de ejemplo
+
+JSON importables en **Dashboards → Import** (carpeta [`examples/`](examples/)):
+
+- [`lab-m01-03-stack-health.json`](examples/lab-m01-03-stack-health.json) — comprobación rápida del stack tras M01-03
+
+Índice global: [labs/examples/README.md](../examples/README.md).
+
 ## Antes de empezar
 
 - Fork del repo o clon local, según [README raíz](../../README.md).

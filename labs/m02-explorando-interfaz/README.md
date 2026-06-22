@@ -37,6 +37,16 @@ Todas las unidades de este módulo son **talleres** sobre Grafana en marcha. Ín
 | M02-03 | [Configuración básica de paneles](M02-03-configuracion-paneles.md) | Ajustar leyendas, unidades y tipo de visualización |
 | M02-04 | [Variables de dashboard](M02-04-variables-dashboard.md) | Custom, interval y repeat por variable |
 
+## Dashboards de ejemplo
+
+JSON importables en [`examples/`](examples/):
+
+- [`lab-m02-02-timeseries-testdata.json`](examples/lab-m02-02-timeseries-testdata.json)
+- [`lab-m02-03-config-panel.json`](examples/lab-m02-03-config-panel.json)
+- [`lab-m02-04-variables.json`](examples/lab-m02-04-variables.json)
+
+Índice global: [labs/examples/README.md](../examples/README.md).
+
 ## Antes de empezar
 
 - Grafana accesible según [infra/README.md](../../infra/README.md).

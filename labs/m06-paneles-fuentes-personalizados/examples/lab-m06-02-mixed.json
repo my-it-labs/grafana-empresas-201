@@ -1,0 +1,128 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus-Lab",
+      "description": "Selecciona Prometheus-Lab al importar",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    },
+    {
+      "name": "DS_POSTGRES",
+      "label": "PostgreSQL-Lab",
+      "description": "Selecciona PostgreSQL-Lab al importar",
+      "type": "datasource",
+      "pluginId": "postgres",
+      "pluginName": "PostgreSQL"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.5.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    }
+  ],
+  "uid": "lab-m06-02",
+  "title": "Lab M06-02 — Mixed Prometheus + SQL",
+  "tags": [
+    "lab",
+    "example",
+    "m06",
+    "mixed"
+  ],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "time": {
+    "from": "now-30d",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Ops traffic vs revenue",
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "expr": "sum(rate(node_network_receive_bytes_total{job=\"node-exporter\", device!~\"lo|veth.*\"}[5m]))",
+          "legendFormat": "Network RX",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_POSTGRES}"
+          },
+          "format": "time_series",
+          "rawSql": "SELECT day AS time, SUM(revenue)::float AS value FROM daily_sales WHERE $__timeFilter(day) GROUP BY day ORDER BY day",
+          "refId": "B"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "Bps"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "currencyUSD"
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "title": "Runbook",
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "## Lab M06-02\n\n- **A:** tráfico RX agregado (Prometheus)\n- **B:** revenue diario (PostgreSQL)\n- Correlacionar picos de tráfico con KPI de negocio."
+      }
+    }
+  ],
+  "templating": {
+    "list": []
+  }
+}

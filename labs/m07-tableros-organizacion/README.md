@@ -23,6 +23,14 @@
 
 Todas las unidades incluyen **Laboratorio**. Índice: [Laboratorios](../LABORATORIOS.md).
 
+## Dashboards de ejemplo
+
+- [`lab-m07-01-diseno-links.json`](examples/lab-m07-01-diseno-links.json)
+- [`lab-m07-02-anotaciones.json`](examples/lab-m07-02-anotaciones.json)
+- [`lab-m07-03-carpetas-playlist.json`](examples/lab-m07-03-carpetas-playlist.json)
+
+Índice global: [labs/examples/README.md](../examples/README.md).
+
 ## Antes de empezar
 
 - Varios dashboards del lab guardados (M04–M06).
