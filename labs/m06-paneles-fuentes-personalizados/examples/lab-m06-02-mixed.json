@@ -11,7 +11,7 @@
     {
       "name": "DS_POSTGRES",
       "label": "PostgreSQL-Lab",
-      "description": "Selecciona PostgreSQL-Lab al importar",
+      "description": "Selecciona PostgreSQL-Lab al importar (solo panel 1 Mixed)",
       "type": "datasource",
       "pluginId": "postgres",
       "pluginName": "PostgreSQL"
@@ -29,100 +29,138 @@
       "id": "prometheus",
       "name": "Prometheus",
       "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
     }
   ],
   "uid": "lab-m06-02",
   "title": "Lab M06-02 — Mixed Prometheus + SQL",
-  "tags": [
-    "lab",
-    "example",
-    "m06",
-    "mixed"
-  ],
+  "tags": ["lab", "example", "m06", "mixed"],
   "timezone": "browser",
   "schemaVersion": 39,
-  "version": 1,
+  "version": 2,
   "refresh": "30s",
   "time": {
-    "from": "now-30d",
+    "from": "now-6h",
     "to": "now"
   },
   "panels": [
     {
       "id": 1,
       "type": "timeseries",
-      "title": "Ops traffic vs revenue",
-      "gridPos": {
-        "h": 10,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "datasource": {
-        "type": "datasource",
-        "uid": "-- Mixed --"
-      },
+      "title": "Ops traffic vs revenue (Mixed A/B)",
+      "gridPos": { "h": 9, "w": 24, "x": 0, "y": 0 },
+      "datasource": { "type": "datasource", "uid": "-- Mixed --" },
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "editorMode": "code",
           "expr": "sum(rate(node_network_receive_bytes_total{job=\"node-exporter\", device!~\"lo|veth.*\"}[5m]))",
           "legendFormat": "Network RX",
+          "range": true,
           "refId": "A"
         },
         {
-          "datasource": {
-            "type": "postgres",
-            "uid": "${DS_POSTGRES}"
-          },
+          "datasource": { "type": "postgres", "uid": "${DS_POSTGRES}" },
           "format": "time_series",
           "rawSql": "SELECT day AS time, SUM(revenue)::float AS value FROM daily_sales WHERE $__timeFilter(day) GROUP BY day ORDER BY day",
           "refId": "B"
         }
       ],
       "fieldConfig": {
-        "defaults": {
-          "unit": "Bps"
-        },
+        "defaults": { "unit": "Bps" },
         "overrides": [
           {
-            "matcher": {
-              "id": "byFrameRefID",
-              "options": "B"
-            },
+            "matcher": { "id": "byFrameRefID", "options": "B" },
             "properties": [
-              {
-                "id": "unit",
-                "value": "currencyUSD"
-              },
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              }
+              { "id": "unit", "value": "currencyUSD" },
+              { "id": "custom.axisPlacement", "value": "right" }
             ]
           }
         ]
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom", "showLegend": true },
+        "tooltip": { "mode": "multi" }
       }
     },
     {
       "id": 2,
-      "type": "text",
-      "title": "Runbook",
-      "gridPos": {
-        "h": 4,
-        "w": 24,
-        "x": 0,
-        "y": 10
+      "type": "table",
+      "title": "Network RX — join by device (Prometheus A/B)",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 9 },
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "editorMode": "code",
+          "expr": "avg by (device) (rate(node_network_receive_bytes_total{job=\"node-exporter\", device!~\"lo|veth.*\"}[5m]))",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "editorMode": "code",
+          "expr": "max by (device) (rate(node_network_receive_bytes_total{job=\"node-exporter\", device!~\"lo|veth.*\"}[5m]))",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": { "unit": "Bps" },
+        "overrides": []
       },
       "options": {
+        "showHeader": true,
+        "sortBy": [{ "desc": true, "displayName": "Max (B/s)" }]
+      },
+      "transformations": [
+        { "id": "merge", "options": {} },
+        { "id": "joinByField", "options": { "byField": "device", "mode": "outer" } },
+        {
+          "id": "organize",
+          "options": {
+            "renameByName": {
+              "device": "Interfaz",
+              "Value #A": "Avg (B/s)",
+              "Value #B": "Max (B/s)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "title": "Runbook",
+      "gridPos": { "h": 4, "w": 24, "x": 0, "y": 17 },
+      "options": {
         "mode": "markdown",
-        "content": "## Lab M06-02\n\n- **A:** tráfico RX agregado (Prometheus)\n- **B:** revenue diario (PostgreSQL)\n- Correlacionar picos de tráfico con KPI de negocio."
+        "content": "## Lab M06-02\n\n- **Panel 1:** datasource **Mixed** — A Prometheus (RX) + B PostgreSQL (revenue).\n- **Panel 2:** solo Prometheus — queries A/B + **Merge** + **Join by field** (`device`).\n- En clase: comparar dual axis (panel 1) vs tabla unida por label (panel 2)."
       }
     }
   ],
-  "templating": {
-    "list": []
-  }
+  "templating": { "list": [] }
 }

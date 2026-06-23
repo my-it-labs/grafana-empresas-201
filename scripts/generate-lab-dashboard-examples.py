@@ -816,14 +816,16 @@ WHERE d.day > CURRENT_DATE - INTERVAL '30 days' GROUP BY r.code"""
                 {
                     "id": 1,
                     "type": "timeseries",
-                    "title": "Ops traffic vs revenue",
-                    "gridPos": {"h": 10, "w": 24, "x": 0, "y": 0},
+                    "title": "Ops traffic vs revenue (Mixed A/B)",
+                    "gridPos": {"h": 9, "w": 24, "x": 0, "y": 0},
                     "datasource": MIXED,
                     "targets": [
                         {
                             "datasource": PROM,
+                            "editorMode": "code",
                             "expr": 'sum(rate(node_network_receive_bytes_total{job="node-exporter", device!~"lo|veth.*"}[5m]))',
                             "legendFormat": "Network RX",
+                            "range": True,
                             "refId": "A",
                         },
                         {
@@ -845,17 +847,64 @@ WHERE d.day > CURRENT_DATE - INTERVAL '30 days' GROUP BY r.code"""
                             }
                         ],
                     },
+                    "options": {
+                        "legend": {"displayMode": "list", "placement": "bottom", "showLegend": True},
+                        "tooltip": {"mode": "multi"},
+                    },
+                },
+                {
+                    "id": 2,
+                    "type": "table",
+                    "title": "Network RX — join by device (Prometheus A/B)",
+                    "gridPos": {"h": 8, "w": 24, "x": 0, "y": 9},
+                    "datasource": PROM,
+                    "targets": [
+                        {
+                            "datasource": PROM,
+                            "editorMode": "code",
+                            "expr": 'avg by (device) (rate(node_network_receive_bytes_total{job="node-exporter", device!~"lo|veth.*"}[5m]))',
+                            "format": "table",
+                            "instant": True,
+                            "range": False,
+                            "refId": "A",
+                        },
+                        {
+                            "datasource": PROM,
+                            "editorMode": "code",
+                            "expr": 'max by (device) (rate(node_network_receive_bytes_total{job="node-exporter", device!~"lo|veth.*"}[5m]))',
+                            "format": "table",
+                            "instant": True,
+                            "range": False,
+                            "refId": "B",
+                        },
+                    ],
+                    "fieldConfig": {"defaults": {"unit": "Bps"}, "overrides": []},
+                    "options": {"showHeader": True, "sortBy": [{"desc": True, "displayName": "Max (B/s)"}]},
+                    "transformations": [
+                        {"id": "merge", "options": {}},
+                        {"id": "joinByField", "options": {"byField": "device", "mode": "outer"}},
+                        {
+                            "id": "organize",
+                            "options": {
+                                "renameByName": {
+                                    "device": "Interfaz",
+                                    "Value #A": "Avg (B/s)",
+                                    "Value #B": "Max (B/s)",
+                                },
+                            },
+                        },
+                    ],
                 },
                 text_panel(
-                    2,
+                    3,
                     "Runbook",
-                    "## Lab M06-02\n\n- **A:** tráfico RX agregado (Prometheus)\n- **B:** revenue diario (PostgreSQL)\n- Correlacionar picos de tráfico con KPI de negocio.",
-                    10,
+                    "## Lab M06-02\n\n- **Panel 1:** datasource **Mixed** — A Prometheus (RX) + B PostgreSQL (revenue).\n- **Panel 2:** solo Prometheus — queries A/B + **Merge** + **Join by field** (`device`).\n- En clase: comparar dual axis (panel 1) vs tabla unida por label (panel 2).",
+                    17,
                     h=4,
                 ),
             ],
             ds_inputs=("prometheus", "postgres"),
-            time_from="now-30d",
+            time_from="now-6h",
         ),
     )
 

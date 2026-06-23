@@ -25,7 +25,8 @@ Todas las unidades incluyen **Laboratorio**. Índice: [Laboratorios](../LABORATO
 ## Dashboards de ejemplo
 
 - [`lab-m06-01-biblioteca-base.json`](examples/lab-m06-01-biblioteca-base.json)
-- [`lab-m06-02-mixed.json`](examples/lab-m06-02-mixed.json)
+- [`lab-m06-02-mixed-prom-join.json`](examples/lab-m06-02-mixed-prom-join.json) — **recomendado M06-02:** Mixed + 2 Prom, Merge, Join, cálculo RX+TX
+- [`lab-m06-02-mixed.json`](examples/lab-m06-02-mixed.json) — Mixed Prom + SQL (alternativa)
 
 Índice global: [labs/examples/README.md](../examples/README.md).
 
